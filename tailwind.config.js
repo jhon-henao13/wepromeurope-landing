@@ -13,9 +13,19 @@ export default {
       keyframes: {
         shimmer: {
           '100%': { transform: 'translateX(300%)' },
+        },
+
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
         }
+      },
+      animation: {
+        // Animación infinita lineal y fluida
+        marquee: 'marquee 35s linear infinite',
+
       }
-      // ⬆️ HASTA AQUÍ ⬆️
+
     },
   },
   plugins: [],

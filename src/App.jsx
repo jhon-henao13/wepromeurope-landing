@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Brands from './components/Brands';
 import Pillars from './components/Pillars';
+import Stats from './components/Stats';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       <Hero />
       <Brands />
       <Pillars />
+      <Stats />
     </div>
   );
 }

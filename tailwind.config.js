@@ -6,7 +6,6 @@ export default {
   ],
   theme: {
     extend: {
-      // ⬇️ REEMPLAZAR/AGREGAR DESDE AQUÍ ⬇️
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'],
       },

@@ -7,7 +7,6 @@ const PILLARS_DATA = [
     id: 0,
     title: 'Market Research & Deep Intelligence',
     tag: 'Market Research',
-    angle: 90, // Ángulo base en el círculo
     tagline: 'Eliminate risk before allocating capital.',
     deliverables: [
       'Strategic Feasibility Studies',
@@ -21,7 +20,6 @@ const PILLARS_DATA = [
     id: 1,
     title: 'Soft-Landing & Expansion Consulting',
     tag: 'Soft-Landing & Expansion',
-    angle: 210,
     tagline: 'Navigate complex regulatory, customs, and logistical entryways seamlessly.',
     deliverables: [
       'Custom aduanas compliance & cross-border structural frameworks',
@@ -35,7 +33,6 @@ const PILLARS_DATA = [
     id: 2,
     title: 'Strategic Positioning & Marketing',
     tag: 'Strategic Positioning',
-    angle: 330,
     tagline: 'Build and shield your global corporate reputation.',
     deliverables: [
       'Cross-border Public Relations campaigns',
@@ -50,170 +47,233 @@ const PILLARS_DATA = [
 export default function Pillars() {
   const [activeTab, setActiveTab] = useState(0);
 
-  // Cálculo de rotación del anillo exterior para que el pilar activo se mueva arriba/centro
-  const getRingRotation = () => {
-    if (activeTab === 0) return 'rotate-0';
-    if (activeTab === 1) return '-rotate-[120deg]';
-    return 'rotate-[120deg]';
-  };
-
-  // Efecto sutil de rotación en el mundo (cambia según la pestaña elegida)
+  // Efecto dinámico de rotación del globo central según el pilar seleccionado
   const getWorldRotation = () => {
     if (activeTab === 0) return 'rotate-0 scale-100';
-    if (activeTab === 1) return 'rotate-[45deg] scale-105';
-    return '-rotate-[45deg] scale-95';
+    if (activeTab === 1) return 'rotate-[60deg] scale-105';
+    return '-rotate-[60deg] scale-98';
   };
 
   return (
-    <section className="relative w-full min-h-screen bg-gradient-to-br from-[#0B1528] via-[#0D1B3E] to-[#070A13] flex flex-col lg:flex-row overflow-hidden font-sans border-t border-white/5 py-12 lg:py-0">
+    <section className="relative w-full min-h-screen bg-gradient-to-br from-[#0B1E43] via-[#071126] to-[#03060F] flex flex-col overflow-hidden font-sans border-t border-white/5 py-16 px-4 sm:px-8 select-none">
       
-      {/* ========================================================================= */}
-      {/* PANEL IZQUIERDO: RENDERIZADO DEL GRÁFICO CIRCULAR INTERACTIVO (45% Ancho) */}
-      {/* ========================================================================= */}
-      <div className="w-full lg:w-[50%] p-8 sm:p-12 lg:p-16 flex flex-col justify-center relative z-20 bg-transparent">
+      {/* 1. CORRECCIÓN DEL SVG GRID PATTERN: Integrado por CSS nativo para evitar fallos de renderizado */}
+      <div 
+        className="absolute inset-0 opacity-100 mix-blend-normal pointer-events-none z-0" 
+        style={{ 
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='2' cy='2' r='1' fill='rgba(255,255,255,0.04)'/%3E%3C/svg%3E")`,
+          backgroundSize: '24px 24px'
+        }} 
+      />
 
-        <div className="space-y-2 mb-12 lg:mb-16">
-          <span className="text-[10px] tracking-[0.25em] text-indigo-400 font-bold uppercase block">
-            Global Capabilities
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
-            Three Pillars of Enterprise <br /> Market Entry
-          </h2>
-        </div>
+      {/* Iluminaciones de ambiente (Glows radiales premium inspirados en image_07bb03.png) */}
+      <div className="absolute top-[-10%] left-[-5%] w-[60%] h-[50%] rounded-full bg-blue-600/10 blur-[130px] pointer-events-none z-0" />
+      <div className="absolute bottom-[-10%] right-[-5%] w-[50%] h-[50%] rounded-full bg-indigo-500/10 blur-[150px] pointer-events-none z-0" />
 
-        {/* Contenedor del Engranaje/Mundo Interactivo */}
-        <div className="relative w-72 h-72 sm:w-80 sm:h-80 mx-auto flex items-center justify-center select-none">
-          
-          {/* Anillo de Segmentos Externo (Gira dinámicamente con transiciones fluidas) */}
-          <div className={`absolute inset-0 rounded-full border-4 border-white/5 transition-transform duration-700 ease-out z-10 ${getRingRotation()}`}>
-            {PILLARS_DATA.map((pillar) => {
-              const isActive = activeTab === pillar.id;
-              // Distribución radial matemática de los botones del arco
-              const positions = [
-                'top-0 left-1/2 -translate-x-1/2 -translate-y-1/2', // Pilar 0
-                'bottom-10 left-6', // Pilar 1
-                'bottom-10 right-6' // Pilar 2
-              ];
-
-              return (
-                <button
-                  key={pillar.id}
-                  onClick={() => setActiveTab(pillar.id)}
-                  className={`absolute ${positions[pillar.id]} w-24 h-24 sm:w-28 sm:h-28 rounded-full flex items-center justify-center p-3 text-center text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-500 shadow-2xl backdrop-blur-md cursor-pointer ${
-                    isActive 
-                      ? 'bg-indigo-600 text-white border-2 border-indigo-400 scale-110 z-30' 
-                      : 'bg-slate-900/80 text-slate-400 border border-white/10 hover:border-indigo-500/40 hover:text-slate-200 z-20'
-                  }`}
-                  style={{ transform: `rotate(${-getRingRotation()}deg)` }} // Contrarresta la rotación del padre para mantener texto derecho
-                >
-                  <span className="leading-tight">{pillar.tag}</span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* El Planeta Tierra en el Centro con efecto de profundidad tridimensional */}
-          <div className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden shadow-[0_0_50px_rgba(79,70,229,0.3)] z-0 bg-slate-950 flex items-center justify-center">
-            {/* Atmósfera translúcida */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-950/60 via-transparent to-sky-400/20 mix-blend-screen z-20 pointer-events-none" />
-            <img 
-              src={worldGlobe} 
-              alt="Interactive Globe" 
-              className={`w-[105%] h-[105%] object-cover opacity-90 select-none pointer-events-none transition-all duration-1000 ease-out ${getWorldRotation()}`}
-            />
-          </div>
-
-        </div>
+      {/* Contenedor General Estructurado */}
+      <div className="w-full max-w-7xl mx-auto space-y-2 mt-4 mb-2 lg:mb-4 text-center lg:text-left z-10">
+        <span className="text-[11px] tracking-[0.3em] text-blue-400 font-bold uppercase block">
+          Global Capabilities
+        </span>
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          Three Pillars of Enterprise <br className="hidden sm:inline" /> Market Entry
+        </h2>
       </div>
 
-      {/* ========================================================================= */}
-      {/* PANEL DERECHO: TARJETAS APILADAS CON EFECTO CINEMÁTICO DE TRASLACIÓN */}
-      {/* ========================================================================= */}
-      <div className="w-full lg:w-[55%] p-6 sm:p-12 lg:p-16 flex flex-col justify-center relative min-h-[520px] lg:min-h-0 bg-transparent z-10 pr-0">
+      <div className="w-full max-w-8xl mx-auto flex flex-col lg:flex-row items-center lg:items-center justify-between gap-16 lg:gap-8 z-10 grow">
         
-        {/* Contenedor Fijo con Altura Explícita para mantener la estructura de capas absolutas */}
-        <div className="relative w-full max-w-xl h-[500px] sm:h-[520px] mx-auto lg:mx-0">
+        {/* ========================================================================= */}
+        {/* PANEL IZQUIERDO: RUEDA INTERACTIVA SEGMENTADA EXACTA (image_07616a.png) */}
+        {/* ========================================================================= */}
+        <div className="w-full lg:w-[45%] flex items-center justify-center relative z-20">
           
-          {PILLARS_DATA.map((pillar) => {
-            const isActive = activeTab === pillar.id;
+          <div className="relative w-80 h-80 sm:w-[380px] sm:h-[380px] flex items-center justify-center drop-shadow-[0_25px_50px_rgba(0,0,0,0.5)]">
             
-            // Cálculo matemático de distancias para simular las tarjetas que se asoman detrás
-            let diff = pillar.id - activeTab;
-            
-            // Lógica para comportamiento circular/infinito del stack
-            if (diff < -1) diff += 3;
-            if (diff > 1) diff -= 3;
-
-            const isPast = diff < 0;
-            const isFuture = diff > 0;
-
-            // Estilos dinámicos premium basados en la posición del stack de la imagen
-            let stackStyles = "";
-            if (isActive) {
-              stackStyles = "opacity-100 translate-x-0 translate-y-0 scale-100 z-30 pointer-events-auto";
-            } else if (isFuture) {
-              // Se asoma hacia la derecha y abajo simulando profundidad física de interfaz
-              stackStyles = "opacity-40 translate-x-4 translate-y-4 scale-[0.98] z-20 pointer-events-none";
-            } else if (isPast) {
-              // Tarjeta que ya pasó: se desplaza hacia la izquierda con desvanecimiento controlado
-              stackStyles = "opacity-0 -translate-x-32 translate-y-2 scale-95 z-10 pointer-events-none";
-            }
-
-            return (
-              <div
-                key={pillar.id}
-                className={`absolute inset-0 w-full h-full transition-all duration-600 ease-[cubic-bezier(0.2,0.8,0.2,1)] ${stackStyles}`}
+            {/* SVG segmentado en 3 partes iguales con espaciado y textos rotados */}
+            <svg 
+              viewBox="0 0 200 200" 
+              className="absolute inset-0 w-full h-full transform rotate-0 transition-transform duration-700 ease-out"
+            >
+              {/* SECTOR 1: Soft-Landing & Expansion (Superior Izquierda) */}
+              <g 
+                className="cursor-pointer transition-all duration-300 hover:brightness-110"
+                onClick={() => setActiveTab(1)}
               >
-                {/* Cuerpo de la Tarjeta Premium de la imagen */}
-                <div className="w-full h-full bg-[#162954]/50 backdrop-blur-xl border border-indigo-400/20 rounded-lg p-4 sm:p-8 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)] relative overflow-hidden flex flex-col justify-between">
-                  
-                  {/* Isotipo/Icon con opacidad y posición idéntica a la imagen de referencia */}
-                  <div 
-                    className="absolute right-4 bottom-4 w-56 h-56 sm:w-72 sm:h-72 opacity-[0.04] pointer-events-none bg-no-repeat bg-contain bg-center z-0 select-none"
-                    style={{ backgroundImage: `url(${bgIcon})` }}
-                  />
+                <path 
+                  d="M 100 100 L 100 0 A 100 100 0 0 0 13.4 150 Z" 
+                  fill={activeTab === 1 ? "#3861FB" : "#B0C7FF"} 
+                  stroke="#071126" 
+                  strokeWidth="2.5"
+                />
+                <text 
+                  x="54" 
+                  y="65" 
+                  textAnchor="middle" 
+                  fill={activeTab === 1 ? "#FFFFFF" : "#1E3B7A"} 
+                  fontSize="7.5" 
+                  fontWeight="700" 
+                  transform="rotate(-60, 54, 82)"
+                  className="tracking-wide select-none pointer-events-none transition-colors duration-300"
+                >
+                  <tspan x="54" dy="0">Soft-Landing</tspan>
+                  <tspan x="54" dy="9">& Expansion</tspan>
+                </text>
+              </g>
 
-                  <div className="relative z-10">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white tracking-wide mb-4">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-sm sm:text-base text-slate-300 font-normal mb-6 tracking-wide">
-                      {pillar.tagline}
-                    </p>
+              {/* SECTOR 2: Strategic Positioning (Superior Derecha) */}
+              <g 
+                className="cursor-pointer transition-all duration-300 hover:brightness-110"
+                onClick={() => setActiveTab(2)}
+              >
+                <path 
+                  d="M 100 100 L 186.6 150 A 100 100 0 0 0 100 0 Z" 
+                  fill={activeTab === 2 ? "#3861FB" : "#B0C7FF"} 
+                  stroke="#071126" 
+                  strokeWidth="2.5"
+                />
+                <text 
+                  x="146" 
+                  y="65" 
+                  textAnchor="middle" 
+                  fill={activeTab === 2 ? "#FFFFFF" : "#1E3B7A"} 
+                  fontSize="7.5" 
+                  fontWeight="700" 
+                  transform="rotate(60, 146, 82)"
+                  className="tracking-wide select-none pointer-events-none transition-colors duration-300"
+                >
+                  <tspan x="146" dy="0">Strategic</tspan>
+                  <tspan x="146" dy="9">Positioning</tspan>
+                </text>
+              </g>
 
-                    {/* Listado de Entregables */}
-                    <div className="space-y-3">
-                      <span className="text-[11px] tracking-[0.15em] uppercase text-slate-400 font-bold block">
-                        We deliver:
-                      </span>
-                      {pillar.deliverables.map((item, idx) => (
-                        <div key={idx} className="flex items-start space-x-2 text-slate-200 text-sm sm:text-[15px]">
-                          <span className="text-indigo-400 font-semibold select-none">✓</span>
-                          <span className="font-normal text-slate-200/90 leading-relaxed">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+              {/* SECTOR 3: Market Research (Inferior) */}
+              <g 
+                className="cursor-pointer transition-all duration-300 hover:brightness-110"
+                onClick={() => setActiveTab(0)}
+              >
+                <path 
+                  d="M 100 100 L 13.4 150 A 100 100 0 0 0 186.6 150 Z" 
+                  fill={activeTab === 0 ? "#3861FB" : "#B0C7FF"} 
+                  stroke="#071126" 
+                  strokeWidth="2.5"
+                />
+                <text 
+                  x="100" 
+                  y="160" 
+                  textAnchor="middle" 
+                  fill={activeTab === 0 ? "#FFFFFF" : "#1E3B7A"} 
+                  fontSize="8" 
+                  fontWeight="700" 
+                  className="tracking-wide select-none pointer-events-none transition-colors duration-300"
+                >
+                  <tspan x="100" dy="0">Market</tspan>
+                  <tspan x="100" dy="9.5">Research</tspan>
+                </text>
+              </g>
+            </svg>
 
-                  {/* Footer e Indicador de Cierre */}
-                  <div className="relative z-10 mt-4">
-                    <p className="text-xs sm:text-sm text-slate-400/80 italic border-t border-white/5 pt-4 mb-4">
-                      {pillar.footer}
-                    </p>
-                    
-                    {/* Botón Call to Action Premium Estilo Outline exacto al diseño */}
-                    <button className="group inline-flex items-center space-x-2 bg-transparent hover:bg-white/5 text-white border border-white/30 hover:border-white/60 font-semibold text-xs py-2.5 px-5 rounded tracking-wide transition-all duration-300">
-                      <span>Schedule a Discovery Call</span>
-                      <span className="transform group-hover:translate-x-1 transition-transform duration-300 text-indigo-400">→</span>
-                    </button>
-                  </div>
+            {/* Globo de la Tierra en el centro (Superpuesto para dar el efecto de anillo perfecto) */}
+            <div className="absolute w-[44%] h-[44%] rounded-full overflow-hidden shadow-[0_0_35px_rgba(0,0,0,0.6)] z-30 bg-slate-950 flex items-center justify-center border border-white/10">
+              <div className="absolute inset-0 bg-gradient-to-tr from-blue-950/40 via-transparent to-white/10 mix-blend-screen z-20 pointer-events-none" />
+              <img 
+                src={worldGlobe} 
+                alt="Interactive Globe" 
+                className={`w-[104%] h-[104%] object-cover opacity-95 select-none pointer-events-none transition-all duration-1000 ease-out ${getWorldRotation()}`}
+              />
+            </div>
 
-                </div>
-              </div>
-            );
-          })}
-
+          </div>
         </div>
+
+        {/* ========================================================================= */}
+        {/* PANEL DERECHO: TARJETAS EN CASCADA ULTRA PREMIUM (image_07bb03.png) */}
+        {/* ========================================================================= */}
+        <div className="w-full lg:w-[50%] flex flex-col justify-center relative min-h-[500px] lg:min-h-[580px] bg-transparent z-10">
+          
+          <div className="relative w-full max-w-xl h-[520px] sm:h-[480px] mx-auto lg:mx-0">
+            
+            {PILLARS_DATA.map((pillar) => {
+              const isActive = activeTab === pillar.id;
+              
+              // Estructuración del Stack de capas infinitas tridimensionales
+              let diff = pillar.id - activeTab;
+              if (diff < -1) diff += 3;
+              if (diff > 1) diff -= 3;
+
+              const isPast = diff < 0;
+              const isFuture = diff > 0;
+
+              let stackStyles = "";
+              if (isActive) {
+                stackStyles = "opacity-100 translate-x-0 translate-y-0 scale-100 z-30 pointer-events-auto shadow-[0_40px_80px_-15px_rgba(0,0,0,0.75)]";
+              } else if (isFuture) {
+                stackStyles = "opacity-40 translate-x-4 translate-y-4 sm:translate-x-6 sm:translate-y-6 scale-[0.98] z-20 pointer-events-none shadow-[0_15px_30px_rgba(0,0,0,0.4)]";
+              } else if (isPast) {
+                stackStyles = "opacity-0 -translate-x-20 translate-y-6 scale-95 z-10 pointer-events-none";
+              }
+
+              return (
+                <div
+                  key={pillar.id}
+                  className={`absolute inset-0 w-full h-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${stackStyles}`}
+                >
+                  {/* Cuerpo Glassmorphism Premium Claro de la Tarjeta */}
+                  <div className="w-full h-full bg-[#1E429F]/20 backdrop-blur-2xl border border-blue-400/25 rounded-xl p-6 sm:p-9 flex flex-col justify-evenly group overflow-hidden">
+                    
+                    {/* Reflejo lineal de luz superior */}
+                    <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-blue-300/40 to-transparent pointer-events-none" />
+
+                    {/* Isotipo corporativo sutil de fondo */}
+                    <div 
+                      className="absolute right-[-8%] bottom-[-8%] w-64 h-64 sm:w-[320px] sm:h-[320px] opacity-[0.025] pointer-events-none bg-no-repeat bg-contain bg-center z-0 select-none mix-blend-screen"
+                      style={{ backgroundImage: `url(${bgIcon})` }}
+                    />
+
+                    {/* Información Superior */}
+                    <div className="relative z-10">
+                      <h3 className="text-xl sm:text-2xl font-bold text-white tracking-wide mb-3 text-left">
+                        {pillar.title}
+                      </h3>
+                      <p className="text-sm sm:text-[15px] text-slate-300 font-light mb-6 tracking-wide text-left leading-relaxed">
+                        {pillar.tagline}
+                      </p>
+
+                      {/* Deliverables */}
+                      <div className="space-y-2.5">
+                        <span className="text-[10px] tracking-[0.2em] uppercase text-blue-400 font-bold block mb-1">
+                          We deliver:
+                        </span>
+                        {pillar.deliverables.map((item, idx) => (
+                          <div key={idx} className="flex items-start space-x-2.5 text-slate-200 text-sm sm:text-[15px]">
+                            <span className="text-blue-400 font-bold select-none mt-0.5">✓</span>
+                            <span className="font-normal text-slate-200/90 leading-snug text-left">{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Footer e Indicador de Cierre */}
+                    <div className="relative z-10 mt-4">
+                      <p className="text-xs sm:text-sm text-slate-400/80 italic border-t border-white/10 pt-4 mb-5 text-left tracking-wide">
+                        {pillar.footer}
+                      </p>
+                      
+                      <div className="flex justify-start">
+                        <button className="group inline-flex items-center space-x-2 bg-transparent hover:bg-white/5 text-white border border-white/30 hover:border-white/60 font-semibold text-xs py-2.5 px-5 rounded tracking-wide transition-all duration-300 shadow-sm">
+                          <span>Schedule a Discovery Call</span>
+                          <span className="transform group-hover:translate-x-1 transition-transform duration-300 text-blue-400">→</span>
+                        </button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              );
+            })}
+
+          </div>
+        </div>
+
       </div>
 
     </section>

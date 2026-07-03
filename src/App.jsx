@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import Brands from './components/Brands';
 import Pillars from './components/Pillars';
 import Stats from './components/Stats';
+import ExecutionMatrix from './components/ExecutionMatrix';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
       <Brands />
       <Pillars />
       <Stats />
+      <ExecutionMatrix />
     </div>
   );
 }

@@ -63,7 +63,7 @@ export default function Stats() {
   return (
     <section 
       ref={sectionRef}
-      className="relative w-full bg-white py-20 lg:py-24 px-4 sm:px-8 overflow-hidden font-sans border-t border-white/5 select-none"
+      className="relative w-full bg-white py-20 lg:py-14 px-4 sm:px-8 overflow-hidden font-sans border-t border-white/5 select-none"
     >
       {/* Patrón Grid de Puntos Premium alineado estéticamente con Pillars */}
       <div 
@@ -82,7 +82,7 @@ export default function Stats() {
           
           {/* Métrica 1: Executed Projects */}
           <div className="group flex flex-col items-center space-y-2 transition-transform duration-500 hover:scale-[1.02]">
-            <div className="text-5xl sm:text-6xl font-black text-[#3861FB] tracking-tight tabular-nums flex items-center justify-center drop-shadow-[0_2px_20px_rgba(56,97,251,0.2)]">
+            <div className="text-4xl sm:text-5xl font-black text-[#3861FB] tracking-tight tabular-nums flex items-center justify-center drop-shadow-[0_2px_20px_rgba(56,97,251,0.2)]">
               <span>{formatNum(projectsCount)}</span>
               <span className="text-blue-400 font-extrabold ml-1 transform group-hover:rotate-12 transition-transform duration-300">+</span>
             </div>
@@ -93,7 +93,7 @@ export default function Stats() {
 
           {/* Métrica 2: Years */}
           <div className="group flex flex-col items-center space-y-2 transition-transform duration-500 hover:scale-[1.02] border-y md:border-y-0 md:border-x border-white/5 py-8 md:py-0">
-            <div className="text-5xl sm:text-6xl font-black text-[#3861FB] tracking-tight tabular-nums flex items-center justify-center drop-shadow-[0_2px_20px_rgba(56,97,251,0.2)]">
+            <div className="text-4xl sm:text-5xl font-black text-[#3861FB] tracking-tight tabular-nums flex items-center justify-center drop-shadow-[0_2px_20px_rgba(56,97,251,0.2)]">
               <span>{yearsCount}</span>
               <span className="text-blue-400 font-extrabold ml-1 transform group-hover:rotate-12 transition-transform duration-300">+</span>
             </div>
@@ -104,7 +104,7 @@ export default function Stats() {
 
           {/* Métrica 3: Enterprise Clients */}
           <div className="group flex flex-col items-center space-y-2 transition-transform duration-500 hover:scale-[1.02]">
-            <div className="text-5xl sm:text-6xl font-black text-[#3861FB] tracking-tight tabular-nums flex items-center justify-center drop-shadow-[0_2px_20px_rgba(56,97,251,0.2)]">
+            <div className="text-4xl sm:text-5xl font-black text-[#3861FB] tracking-tight tabular-nums flex items-center justify-center drop-shadow-[0_2px_20px_rgba(56,97,251,0.2)]">
               <span>{formatNum(clientsCount)}</span>
               <span className="text-blue-400 font-extrabold ml-1 transform group-hover:rotate-12 transition-transform duration-300">+</span>
             </div>

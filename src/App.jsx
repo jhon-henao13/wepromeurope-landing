@@ -8,6 +8,7 @@ import ExecutionMatrix from './components/ExecutionMatrix';
 import SuccessStories from './components/SuccessStories';
 import GlobalFootprint from './components/GlobalFootprint';
 import Team from './components/Team';
+import HowWeWork from './components/HowWeWork';
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
       <SuccessStories />
       <GlobalFootprint />
       <Team />
+      <HowWeWork />
     </div>
   );
 }

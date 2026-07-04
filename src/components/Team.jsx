@@ -388,7 +388,7 @@ const Team = () => {
   };
 
   return (
-    <section className="w-full py-24 md:py-32 overflow-hidden bg-slate-100 border-b border-slate-100">
+    <section className="w-full py-20 md:py-28 overflow-hidden bg-slate-100 border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-6 md:px-16">
 
         {/* HEADER */}

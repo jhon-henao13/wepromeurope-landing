@@ -1,27 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from '../assets/logo-blanco.png';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      // Se activa el estado premium al bajar más de 20 píxeles
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <header className="w-full flex flex-col fixed top-0 left-0 z-50 transition-all duration-300">
       {/* 1. TOP NOTIFICATION BAR */}
-      <div className="w-full bg-slate-950/90 border-b border-white/5 text-white text-[11px] md:text-xs py-2 px-4 text-center tracking-wide z-50">
+      {/* 1. TOP NOTIFICATION BAR (Animada) */}
+      <div className={`w-full bg-slate-950/90 border-b border-white/5 text-white text-[11px] md:text-xs px-4 text-center tracking-wide z-50 transition-all duration-500 ease-in-out overflow-hidden ${isScrolled ? 'max-h-0 py-0 opacity-0 pointer-events-none' : 'max-h-12 py-2 opacity-100'}`}>
         <span className="opacity-75">Looking for local market insights?</span>{' '}
         <strong className="font-medium text-indigo-400">We deliver both local market research and cross-border expansion solutions.</strong>
       </div>
 
       {/* 2. MAIN NAVIGATION */}
-      <div className="w-full border-b border-white/10">
-        <nav className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      {/* 2. MAIN NAVIGATION (Glassmorphism e Interactividad) */}
+      <div className={`w-full transition-all duration-500 ease-in-out ${isScrolled ? 'bg-slate-950/75 backdrop-blur-xl border-b border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.5)]' : 'bg-transparent border-b border-white/10'}`}>
+        <nav className={`w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between transition-all duration-500 ease-in-out ${isScrolled ? 'h-16' : 'h-20'}`}>
           
           {/* Logo Brand */}
           <div className="flex items-center space-x-3 cursor-pointer group">
             <img 
               src={logo} 
               alt="WeProm Europe Logo" 
-              className="h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-105" 
+              className={`w-auto object-contain transition-all duration-500 group-hover:scale-105 ${isScrolled ? 'h-11' : 'h-14'}`} 
             />
             
           </div>

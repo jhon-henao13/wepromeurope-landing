@@ -10,6 +10,7 @@ import GlobalFootprint from './components/GlobalFootprint';
 import Team from './components/Team';
 import HowWeWork from './components/HowWeWork';
 import RiskMitigationFAQs from './components/RiskMitigationFAQs';
+import Footer from './components/Footer';
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
       <Team />
       <HowWeWork />
       <RiskMitigationFAQs />
+      <Footer />
     </div>
   );
 }

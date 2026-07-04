@@ -5,6 +5,7 @@ import Brands from './components/Brands';
 import Pillars from './components/Pillars';
 import Stats from './components/Stats';
 import ExecutionMatrix from './components/ExecutionMatrix';
+import SuccessStories from './components/SuccessStories';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <Pillars />
       <Stats />
       <ExecutionMatrix />
+      <SuccessStories />
     </div>
   );
 }

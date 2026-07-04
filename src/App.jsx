@@ -7,6 +7,7 @@ import Stats from './components/Stats';
 import ExecutionMatrix from './components/ExecutionMatrix';
 import SuccessStories from './components/SuccessStories';
 import GlobalFootprint from './components/GlobalFootprint';
+import Team from './components/Team';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
       <ExecutionMatrix />
       <SuccessStories />
       <GlobalFootprint />
+      <Team />
     </div>
   );
 }

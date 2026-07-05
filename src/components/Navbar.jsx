@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import logo from '../assets/logo-blanco.png';
+import { useContactModal } from './ContactModal';
 
 export default function Navbar() {
+  const { openModal } = useContactModal();
   const [isOpen, setIsOpen] = useState(false);
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -57,7 +59,7 @@ export default function Navbar() {
 
           {/* Acciones de Escritorio */}
           <div className="hidden lg:flex items-center space-x-6">
-            <button className="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold px-5 py-2.5 rounded shadow-lg shadow-indigo-600/20 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0">
+            <button onClick={openModal} className="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold px-5 py-2.5 rounded shadow-lg shadow-indigo-600/20 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0">
               Request Diagnostic
             </button>
             {/* Reemplazar el contenedor div de idiomas por este */}
@@ -101,7 +103,10 @@ export default function Navbar() {
             </a>
           ))}
           <div className="pt-4 flex flex-col space-y-4">
-            <button className="w-full bg-indigo-600 text-white text-xs font-semibold py-3 rounded text-center">
+            <button 
+              onClick={openModal}
+              className="w-full bg-indigo-600 text-white text-xs font-semibold py-3 rounded text-center"
+            >
               Request Diagnostic
             </button>
             <div className="text-xs font-bold text-white/60 space-x-2 text-center">

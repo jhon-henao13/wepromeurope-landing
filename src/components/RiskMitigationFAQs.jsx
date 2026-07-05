@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useContactModal } from './ContactModal';
 
 const FAQ_DATA = [
   {
@@ -45,6 +46,7 @@ const FAQ_DATA = [
 
 export default function RiskMitigationFAQs() {
   const [openIndex, setOpenIndex] = useState(null);
+  const { openModal } = useContactModal();
 
   const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -122,7 +124,7 @@ export default function RiskMitigationFAQs() {
 
         {/* Botón de Llamado a la Acción (CTA) Centralizado Inferior */}
         <div className="mt-12 sm:mt-16 flex justify-center w-full">
-          <button className="group relative overflow-hidden bg-[#3861FB] hover:bg-[#2b4ec9] active:bg-[#1f3ba3] text-white text-xs sm:text-sm font-bold tracking-wider uppercase px-8 py-4 rounded shadow-[0_8px_20px_-6px_rgba(56,97,251,0.5)] transition-all duration-300 transform hover:-translate-y-0.5 flex items-center space-x-3">
+          <button onClick={openModal} className="group relative overflow-hidden bg-[#3861FB] hover:bg-[#2b4ec9] active:bg-[#1f3ba3] text-white text-xs sm:text-sm font-bold tracking-wider uppercase px-8 py-4 rounded shadow-[0_8px_20px_-6px_rgba(56,97,251,0.5)] transition-all duration-300 transform hover:-translate-y-0.5 flex items-center space-x-3">
             <span>Schedule a Discovery Call</span>
             {/* Vector de Flecha Indicativa */}
             <svg 

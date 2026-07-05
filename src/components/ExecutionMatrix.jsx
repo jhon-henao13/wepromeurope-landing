@@ -1,4 +1,5 @@
 import React from 'react';
+import { useContactModal } from './ContactModal';
 
 const MATRIX_CAPABILITIES = [
   // Fila 1 de la imagen
@@ -16,6 +17,8 @@ const MATRIX_CAPABILITIES = [
 ];
 
 export default function ExecutionMatrix() {
+  const { openModal } = useContactModal();
+  
   return (
     <section className="relative w-full bg-slate-100 py-20 lg:py-28 px-4 sm:px-8 overflow-hidden font-sans border-t border-white/5 select-none">
       
@@ -66,7 +69,10 @@ export default function ExecutionMatrix() {
 
         {/* Botón de llamado a la acción principal unificado */}
         <div className="w-full flex justify-center">
-          <button className="group relative inline-flex items-center space-x-2.5 bg-[#3861FB] hover:bg-[#254EDB] text-white font-bold text-sm py-4 px-8 rounded transition-all duration-300 ease-out shadow-[0_10px_25px_-5px_rgba(56,97,251,0.4)] hover:shadow-[0_15px_35px_rgba(56,97,251,0.6)] hover:-translate-y-0.5 active:translate-y-0">
+          <button 
+            onClick={openModal}
+            className="group relative inline-flex items-center space-x-2.5 bg-[#3861FB] hover:bg-[#254EDB] text-white font-bold text-sm py-4 px-8 rounded transition-all duration-300 ease-out shadow-[0_10px_25px_-5px_rgba(56,97,251,0.4)] hover:shadow-[0_15px_35px_rgba(56,97,251,0.6)] hover:-translate-y-0.5 active:translate-y-0"
+          >
             <span>Schedule a Discovery Call</span>
             <span className="transform group-hover:translate-x-1 transition-transform duration-300 text-white/90">→</span>
           </button>

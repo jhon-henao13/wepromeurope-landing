@@ -1,7 +1,9 @@
 import React, { useRef, useState } from 'react';
 import heroVideo from '../assets/hero-bg.mp4';
+import { useContactModal } from './ContactModal';
 
 export default function Hero() {
+  const { openModal } = useContactModal();
   const videoRef = useRef(null);
   const [isFading, setIsFading] = useState(false);
 
@@ -64,7 +66,7 @@ export default function Hero() {
 
           {/* Botón Call to Action Interactivo */}
           <div className="pt-2">
-            <button className="group relative inline-flex items-center justify-center space-x-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs md:text-sm px-6 py-4 rounded shadow-xl shadow-indigo-600/20 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 overflow-hidden">
+            <button onClick={openModal} className="group relative inline-flex items-center justify-center space-x-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs md:text-sm px-6 py-4 rounded shadow-xl shadow-indigo-600/20 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 overflow-hidden">
               {/* Brillo dinámico en hover */}
               <div className="absolute inset-0 w-1/2 h-full bg-white/10 skew-x-[-25deg] -translate-x-full group-hover:animate-[shimmer_0.75s_ease-in-out]" />
               
@@ -80,6 +82,7 @@ export default function Hero() {
               </svg>
             </button>
           </div>
+
 
         </div>
       </div>

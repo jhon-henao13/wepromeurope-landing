@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import worldGlobe from '../assets/world-globe.webp';
 import bgIcon from '../assets/icon.webp';
+import { useContactModal } from './ContactModal';
 
 const PILLARS_DATA = [
   {
@@ -45,6 +46,7 @@ const PILLARS_DATA = [
 ];
 
 export default function Pillars() {
+  const { openModal } = useContactModal();
   const [activeTab, setActiveTab] = useState(0);
 
   // Efecto dinámico de rotación del globo central según el pilar seleccionado
@@ -259,7 +261,7 @@ export default function Pillars() {
                       </p>
                       
                       <div className="flex justify-start">
-                        <button className="group inline-flex items-center space-x-2 bg-transparent hover:bg-white/5 text-white border border-white/30 hover:border-white/60 font-semibold text-xs py-2.5 px-5 rounded tracking-wide transition-all duration-300 shadow-sm">
+                        <button onClick={openModal} className="group inline-flex items-center space-x-2 bg-transparent hover:bg-white/5 text-white border border-white/30 hover:border-white/60 font-semibold text-xs py-2.5 px-5 rounded tracking-wide transition-all duration-300 shadow-sm">
                           <span>Schedule a Discovery Call</span>
                           <span className="transform group-hover:translate-x-1 transition-transform duration-300 text-blue-400">→</span>
                         </button>

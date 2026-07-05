@@ -1,4 +1,5 @@
 import React from 'react';
+import { ModalProvider } from './components/ContactModal';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Brands from './components/Brands';
@@ -14,22 +15,21 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div className="bg-slate-950 w-full min-h-screen text-slate-100 antialiased selection:bg-indigo-500 selection:text-white">
-      {/* Header fijo */}
-      <Navbar />
-      
-      {/* Sección Hero */}
-      <Hero />
-      <Brands />
-      <Pillars />
-      <Stats />
-      <ExecutionMatrix />
-      <SuccessStories />
-      <GlobalFootprint />
-      <Team />
-      <HowWeWork />
-      <RiskMitigationFAQs />
-      <Footer />
-    </div>
+    <ModalProvider>
+      <div className="bg-slate-950 w-full min-h-screen text-slate-100 antialiased selection:bg-indigo-500 selection:text-white">
+        <Navbar />
+        <Hero />
+        <Brands />
+        <Pillars />
+        <Stats />
+        <ExecutionMatrix />
+        <SuccessStories />
+        <GlobalFootprint />
+        <Team />
+        <HowWeWork />
+        <RiskMitigationFAQs />
+        <Footer />
+      </div>
+    </ModalProvider>
   );
 }

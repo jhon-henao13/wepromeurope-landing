@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useContactModal } from './ContactModal';
 
 const processSteps = [
   {
@@ -47,6 +48,8 @@ const processSteps = [
 ];
 
 const HowWeWork = () => {
+  const { openModal } = useContactModal();
+
   return (
     <section className="relative overflow-hidden bg-slate-50 py-16 md:py-24">
 
@@ -203,7 +206,7 @@ const HowWeWork = () => {
             </p>
 
             <div className="w-full flex justify-center">
-              <button className="group relative inline-flex items-center space-x-2.5 bg-[#3861FB] hover:bg-[#254EDB]    text-white font-bold text-sm py-5 px-8 rounded transition-all duration-300 ease-out shadow-   [0_10px_25px_-5px_rgba(56,97,251,0.4)] hover:shadow-[0_15px_35px_rgba(56,97,251,0.6)] hover:-translate-y-0.5   active:translate-y-0">
+              <button onClick={openModal} className="group relative inline-flex items-center space-x-2.5 bg-[#3861FB] hover:bg-[#254EDB]    text-white font-bold text-sm py-5 px-8 rounded transition-all duration-300 ease-out shadow-   [0_10px_25px_-5px_rgba(56,97,251,0.4)] hover:shadow-[0_15px_35px_rgba(56,97,251,0.6)] hover:-translate-y-0.5   active:translate-y-0">
                 <span>Request Market Entry Diagnostic</span>
                 <span className="transform group-hover:translate-x-1 transition-transform duration-300 text-white/90">→</span>
               </button>

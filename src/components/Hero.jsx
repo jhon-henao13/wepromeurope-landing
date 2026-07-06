@@ -30,7 +30,7 @@ export default function Hero() {
           muted
           playsInline
           onEnded={handleVideoEnd}
-          className={`w-full h-full object-cover scale-105 transition-opacity duration-500 ease-in-out ${
+          className={`w-full h-full object-cover object-[68%] md:object-center scale-105 transition-opacity duration-500 ease-in-out ${
             isFading ? 'opacity-0' : 'opacity-100'
           }`}
         >
@@ -50,18 +50,18 @@ export default function Hero() {
           
           {/* Título Principal Tipográfico Impactante */}
           
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-white">
+          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold !tracking-[1.2] !leading-[1.15] text-white">
             Command Your <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-100 to-slate-400">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-slate-100 via-slate-200 to-[#3861FB]">
               Cross-Border
             </span> <br />
             Expansion.
           </h1>
 
           {/* Subtítulo de alta legibilidad */}
-          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-300 tracking-wide leading-relaxed max-w-xl font-light text-balance">
+          <p className="text-base sm:text-base md:text-lg lg:text-xl text-slate-100 tracking-wide leading-relaxed max-w-lg font-light text-balance">
             We deliver precise Europe-Latin America market-entry diagnostics for capitalized ventures, 
-            safeguarding critical investments through <span className="font-semibold text-indigo-400 whitespace-nowrap">35+ years of expertise.</span>
+            safeguarding critical investments through <span className="font-bold text-indigo-400 whitespace-nowrap">35+ years of expertise.</span>
           </p>
 
           {/* Botón Call to Action Interactivo */}

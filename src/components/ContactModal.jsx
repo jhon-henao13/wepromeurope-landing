@@ -97,7 +97,7 @@ function ContactModal({ isOpen, step, setStep, formData, setFormData, onClose })
 
             <form onSubmit={handleNextStep} className="space-y-5 text-left">
               <div>
-                <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">Nombre</label>
+                <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">Name</label>
                 <input 
                   type="text" 
                   name="name"
@@ -110,7 +110,7 @@ function ContactModal({ isOpen, step, setStep, formData, setFormData, onClose })
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">Email de empresa</label>
+                <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">Company Email</label>
                 <input 
                   type="email" 
                   name="email"
@@ -123,7 +123,7 @@ function ContactModal({ isOpen, step, setStep, formData, setFormData, onClose })
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">Teléfono</label>
+                <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">Phone</label>
                 <div className="flex rounded-xl shadow-sm bg-slate-50/50 border border-slate-200 focus-within:border-[#3861FB] focus-within:bg-white focus-within:shadow-[0_0_0_4px_rgba(56,97,251,0.1)] transition-all duration-300 overflow-hidden">
                   <div className="flex items-center space-x-1.5 px-3 border-r border-slate-200 bg-slate-50">
                     <span className="text-sm">🇲🇽</span>
@@ -153,7 +153,7 @@ function ContactModal({ isOpen, step, setStep, formData, setFormData, onClose })
                 type="submit"
                 className="w-full bg-[#3861FB] hover:bg-[#254EDB] text-white font-semibold text-sm py-4 rounded-xl transition-all duration-300 mt-4 shadow-lg shadow-blue-600/10 active:scale-[0.99]"
               >
-                Siguiente
+                Next Step →
               </button>
             </form>
           </div>
@@ -168,11 +168,11 @@ function ContactModal({ isOpen, step, setStep, formData, setFormData, onClose })
                 onClick={() => setStep(1)} 
                 className="text-xs font-bold text-slate-500 hover:text-[#3861FB] flex items-center space-x-1 transition-colors"
               >
-                <span>← Volver</span>
+                <span>← Back</span>
               </button>
               <div className="text-center pr-12">
-                <span className="text-[10px] tracking-wider font-bold text-slate-400 uppercase">Trabaja con nosotros</span>
-                <p className="text-xs font-semibold text-slate-700">Reserva una cita</p>
+                <span className="text-[10px] tracking-wider font-bold text-slate-400 uppercase">Work with Us</span>
+                <p className="text-xs font-semibold text-slate-700">Schedule a Meeting</p>
               </div>
             </div>
 

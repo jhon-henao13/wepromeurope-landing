@@ -13,21 +13,55 @@ import HowWeWork from './components/HowWeWork';
 import RiskMitigationFAQs from './components/RiskMitigationFAQs';
 import Footer from './components/Footer';
 
+// 1. IMPORTAR EL NUEVO COMPONENTE PREMIUM DE TRANSICIÓN
+import ScrollReveal from './components/ScrollReveal';
+
 export default function App() {
   return (
     <ModalProvider>
       <div className="bg-slate-950 w-full min-h-screen text-slate-100 antialiased selection:bg-indigo-500 selection:text-white">
         <Navbar />
+        
+        {/* El Hero aparece de inmediato para una experiencia de carga rápida instantánea */}
         <Hero />
-        <Brands />
-        <Pillars />
-        <Stats />
-        <ExecutionMatrix />
-        <SuccessStories />
-        <GlobalFootprint />
-        <Team />
-        <HowWeWork />
-        <RiskMitigationFAQs />
+        
+        {/* Envolvemos individualmente las secciones con el efecto Premium de Scroll */}
+        <ScrollReveal>
+          <Brands />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <Pillars />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <Stats />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <ExecutionMatrix />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <SuccessStories />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <GlobalFootprint />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <Team />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <HowWeWork />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <RiskMitigationFAQs />
+        </ScrollReveal>
+
         <Footer />
       </div>
     </ModalProvider>

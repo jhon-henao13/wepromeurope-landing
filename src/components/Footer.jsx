@@ -114,8 +114,10 @@ export default function Footer() {
           
           {/* Derechos de Autor */}
           <div className="text-center lg:text-left">
-            <span>© 2026 WeProm Europe — All rights reserved. | Designed by </span>
-            <span className="font-normal text-slate-300 hover:text-blue-400 transition-colors duration-200 cursor-pointer">dealbamkt</span>
+            <span>© 2026 WeProm Europe — All rights reserved. | Powered by </span>
+            <a href="https://grupoweprom.com" target="_blank" rel="noreferrer" className="font-normal text-slate-300 hover:text-blue-400 transition-colors duration-200 cursor-pointer">
+              WeProm Marketing
+            </a>
           </div>
 
           {/* Enlaces Legales Cohesionados */}

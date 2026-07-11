@@ -2,9 +2,10 @@ import React from 'react';
 
 // Importación ordenada de tus assets de marcas
 import axa from '../assets/brands/axa.png';
-import businessfrance from '../assets/brands/businessfrance.png';
+/* import businessfrance from '../assets/brands/businessfrance.png'; */
+import bpifrance from '../assets/brands/bpifrance.webp';
 import cocacola from '../assets/brands/cocacola.png';
-import comce from '../assets/brands/comce.png';
+// import comce from '../assets/brands/comce.png';
 import LogoFord from '../assets/brands/LogoFord.png';
 import MACDONALDSMin from '../assets/brands/MACDONALDS-min.png';
 import mercedes from '../assets/brands/mercedes.png';
@@ -14,9 +15,10 @@ import promexico from '../assets/brands/promexico.png';
 
 const brandsList = [
   { name: 'AXA', src: axa },
-  { name: 'Business France', src: businessfrance },
+  // { name: 'Business France', src: businessfrance },
+  { name: 'BPI France', src: bpifrance },
   { name: 'Coca Cola', src: cocacola },
-  { name: 'COMCE', src: comce },
+  // { name: 'COMCE', src: comce },
   { name: 'Ford', src: LogoFord },
   { name: 'McDonalds', src: MACDONALDSMin },
   { name: 'Mercedes Benz', src: mercedes },

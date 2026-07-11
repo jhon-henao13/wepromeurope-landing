@@ -61,7 +61,8 @@
     "clients": "Enterprise Clients"
   },
   "executionMatrix": {
-    "title": "Local Capabilities — Specialized Execution Matrix",
+    "title": "Local Capabilities",
+    "subtitle": "Specialized Execution Matrix",
     "description": "Precise tactical capabilities designed to drive growth and manage complexity, both in local and international markets.",
     "items": [
       "Market Research and Economic Intelligence",
@@ -115,7 +116,11 @@
     ]
   },
   "globalFootprint": {
-    "title": "Global Presence — Institutional Leadership",
+    "tag": "Global Footprint",
+    "title": "Institutional Leadership",
+    "hubsLabel": "Hubs",
+    "teamLabel": "Team Members",
+    "advisorsLabel": "Associated Advisors",
     "hubs": [
       {
         "name": "WeProm LATAM — Guadalajara, Mexico",

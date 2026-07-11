@@ -61,7 +61,8 @@
     "clients": "Clients Grands Comptes"
   },
   "executionMatrix": {
-    "title": "Capacités Locales — Matrice d'Exécution Spécialisée",
+    "title": "Capacités Locales",
+    "subtitle": "Matrice d'Exécution Spécialisée",
     "description": "Des capacités tactiques précises, conçues pour stimuler la croissance et gérer la complexité, aussi bien sur les marchés locaux qu'à l'international.",
     "items": [
       "Étude de Marché et Intelligence Économique",
@@ -115,7 +116,11 @@
     ]
   },
   "globalFootprint": {
-    "title": "Présence Mondiale — Leadership Institutionnel",
+    "tag": "Présence Mondiale",
+    "title": "Leadership Institutionnel",
+    "hubsLabel": "Hubs",
+    "teamLabel": "Membres de l'Équipe",
+    "advisorsLabel": "Conseillers Associés",
     "hubs": [
       {
         "name": "WeProm LATAM — Guadalajara, Mexique",

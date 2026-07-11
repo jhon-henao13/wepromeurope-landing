@@ -49,6 +49,8 @@ const PILLARS_DATA = [
 export default function Pillars() {
   const { openModal } = useContactModal();
   const { t } = useLanguage();
+  const wheelLabels = t('pillars.wheelLabels');
+  const weDeliver = t('pillars.weDeliver');
   const [activeTab, setActiveTab] = useState(0);
 
   const pillars = t('pillars.items');
@@ -102,7 +104,7 @@ export default function Pillars() {
               viewBox="0 0 200 200" 
               className="absolute inset-0 w-full h-full transform rotate-0 transition-transform duration-700 ease-out"
             >
-              {/* SECTOR 1: Soft-Landing & Expansion (Superior Izquierda) */}
+              {/* SECTOR 1: Soft-Landing & Expansion */}
               <g 
                 className="cursor-pointer transition-all duration-300 hover:brightness-110"
                 onClick={() => setActiveTab(1)}
@@ -123,12 +125,13 @@ export default function Pillars() {
                   transform="rotate(-60, 54, 82)"
                   className="tracking-wide select-none pointer-events-none transition-colors duration-300"
                 >
-                  <tspan x="54" dy="0">Soft-Landing</tspan>
-                  <tspan x="54" dy="9">& Expansion</tspan>
+                  {wheelLabels.softLanding.split(' & ').map((part, idx) => (
+                    <tspan key={idx} x="54" dy={idx === 0 ? 0 : 9}>{part}</tspan>
+                  ))}
                 </text>
               </g>
-
-              {/* SECTOR 2: Strategic Positioning (Superior Derecha) */}
+                
+              {/* SECTOR 2: Strategic Positioning */}
               <g 
                 className="cursor-pointer transition-all duration-300 hover:brightness-110"
                 onClick={() => setActiveTab(2)}
@@ -149,12 +152,13 @@ export default function Pillars() {
                   transform="rotate(60, 146, 82)"
                   className="tracking-wide select-none pointer-events-none transition-colors duration-300"
                 >
-                  <tspan x="146" dy="0">Strategic</tspan>
-                  <tspan x="146" dy="9">Positioning</tspan>
+                  {wheelLabels.strategicPositioning.split(' & ').map((part, idx) => (
+                    <tspan key={idx} x="146" dy={idx === 0 ? 0 : 9}>{part}</tspan>
+                  ))}
                 </text>
               </g>
-
-              {/* SECTOR 3: Market Research (Inferior) */}
+                
+              {/* SECTOR 3: Market Research */}
               <g 
                 className="cursor-pointer transition-all duration-300 hover:brightness-110"
                 onClick={() => setActiveTab(0)}
@@ -174,8 +178,9 @@ export default function Pillars() {
                   fontWeight="700" 
                   className="tracking-wide select-none pointer-events-none transition-colors duration-300"
                 >
-                  <tspan x="100" dy="0">Market</tspan>
-                  <tspan x="100" dy="9.5">Research</tspan>
+                  {wheelLabels.marketResearch.split(' & ').map((part, idx) => (
+                    <tspan key={idx} x="100" dy={idx === 0 ? 0 : 9.5}>{part}</tspan>
+                  ))}
                 </text>
               </g>
             </svg>
@@ -239,7 +244,7 @@ export default function Pillars() {
 
                     {/* Información Superior */}
                     <div className="relative z-10">
-                      <h3 className="text-xl sm:text-2xl font-bold text-white tracking-wide mb-3 text-left">
+                      <h3 className="text-lg sm:text-xl font-bold text-white tracking-wide mb-3 text-left">
                         {pillar.title}
                       </h3>
                       <p className="text-sm sm:text-[15px] text-slate-300 font-light mb-6 tracking-wide text-left leading-relaxed">
@@ -249,10 +254,10 @@ export default function Pillars() {
                       {/* Deliverables */}
                       <div className="space-y-2.5">
                         <span className="text-[10px] tracking-[0.2em] uppercase text-blue-400 font-bold block mb-1">
-                          We deliver:
+                          {weDeliver}
                         </span>
                         {pillar.offerings && pillar.offerings.map((item, idx) => (
-                          <div key={idx} className="flex items-start space-x-2.5 text-slate-200 text-sm sm:text-[15px]">
+                          <div key={idx} className="flex items-start space-x-2.5 text-slate-200 text-sm sm:text-[12px]">
                             <span className="text-blue-400 font-bold select-none mt-0.5">✓</span>
                             <span className="font-normal text-slate-200/90 leading-snug text-left">{item}</span>
                           </div>
@@ -262,7 +267,7 @@ export default function Pillars() {
 
                     {/* Footer e Indicador de Cierre */}
                     <div className="relative z-10 mt-4">
-                      <p className="text-xs sm:text-sm text-slate-400/80 italic border-t border-white/10 pt-4 mb-5 text-left tracking-wide">
+                      <p className="text-xs sm:text-xs text-slate-400/80 italic border-t border-white/10 pt-4 mb-5 text-left tracking-wide">
                         {pillar.footer}
                       </p>
                       

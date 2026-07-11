@@ -14,46 +14,52 @@
   },
 
   "pillars": {
-      "title": "Three Pillars of the Company",
-      "items": [
-        {
-          "title": "1. Market Research & In-depth Intelligence",
-          "description": "Eliminate risk before investing your capital.",
-          "offerings": [
-            "Strategic Feasibility Studies",
-            "Advanced Geomarketing Diagnostics",
-            "Qualitative and Quantitative Focus Groups",
-            "Competitive Benchmarking Analysis"
-          ],
-          "footer": "To validate expansions with zero blind spots.",
-          "cta": "Schedule a Discovery Call →"
-        },
-        {
-          "title": "2. Smooth Landing & Expansion Consulting",
-          "description": "Simplify your most complex regulatory, customs, and logistics procedures.",
-          "offerings": [
-            "Custom customs compliance and cross-border structural frameworks",
-            "Secure deployment of franchise networks and legal entities",
-            "Mapping of strategic investment paths with institutional players",
-            "Localization of business operations and supply chains"
-          ],
-          "footer": "To secure operational continuity across jurisdictions.",
-          "cta": "Schedule a Discovery Call →"
-        },
-        {
-          "title": "3. Strategic Positioning & Marketing",
-          "description": "Build and protect your corporate reputation internationally.",
-          "offerings": [
-            "Cross-border public relations campaigns",
-            "Adaptation of brand identities to foreign markets",
-            "High-level diplomatic support at major international trade forums",
-            "Digital authority building and stakeholder alignment"
-          ],
-          "footer": "To dominate regional market share organically.",
-          "cta": "Schedule a Discovery Call →"
-        }
-      ]
-    },
+    "title": "Three Pillars of the Company",
+    "items": [
+      {
+        "title": "1. Market Research & In-depth Intelligence",
+        "description": "Eliminate risk before investing your capital.",
+        "offerings": [
+          "Strategic Feasibility Studies",
+          "Advanced Geomarketing Diagnostics",
+          "Qualitative and Quantitative Focus Groups",
+          "Competitive Benchmarking Analysis"
+        ],
+        "footer": "To validate expansions with zero blind spots.",
+        "cta": "Schedule a Discovery Call →"
+      },
+      {
+        "title": "2. Smooth Landing & Expansion Consulting",
+        "description": "Simplify your most complex regulatory, customs, and logistics procedures.",
+        "offerings": [
+          "Custom customs compliance and cross-border structural frameworks",
+          "Secure deployment of franchise networks and legal entities",
+          "Mapping of strategic investment paths with institutional players",
+          "Localization of business operations and supply chains"
+        ],
+        "footer": "To secure operational continuity across jurisdictions.",
+        "cta": "Schedule a Discovery Call →"
+      },
+      {
+        "title": "3. Strategic Positioning & Marketing",
+        "description": "Build and protect your corporate reputation internationally.",
+        "offerings": [
+          "Cross-border public relations campaigns",
+          "Adaptation of brand identities to foreign markets",
+          "High-level diplomatic support at major international trade forums",
+          "Digital authority building and stakeholder alignment"
+        ],
+        "footer": "To dominate regional market share organically.",
+        "cta": "Schedule a Discovery Call →"
+      }
+    ],
+    "weDeliver": "We deliver:",
+    "wheelLabels": {
+      "softLanding": "Soft-Landing & Expansion",
+      "strategicPositioning": "Strategic Positioning",
+      "marketResearch": "Market Research"
+    }
+  },
   
   "stats": {
     "projects": "Projects Delivered",
@@ -249,6 +255,7 @@
         "description": "Advertising, communicator, and trilingual marketing specialist. Over ten years of experience in strategic marketing, market research, and international business development."
       }
     },
+    
   "howWeWork": {
     "title": "Method — Our Execution Architecture",
     "subtitle": "A structured approach to accompany opportunities between Europe and Latin America, with expert support at every step. International expansion is not a one-time decision but a methodical process.",
@@ -333,6 +340,24 @@
     ],
     "cta": "Schedule a Discovery Call"
   },
+
+  "modal": {
+      "title": "Schedule Your Discovery Session",
+      "subtitle": "Book an appointment using your company email to speed up the process.",
+      "name": "Name",
+      "email": "Company Email",
+      "phone": "Phone",
+      "nextStep": "Next Step →",
+      "back": "← Back",
+      "workWithUs": "Work with Us",
+      "scheduleMeeting": "Schedule a Meeting",
+      "namePlaceholder": "Ismael Lopez",
+      "emailPlaceholder": "contacto@promexico.mx",
+      "phonePlaceholder": "55 2234 89"
+    },
+
+
+
   "footer": {
     "explore": "Explore",
     "global": "Global Capabilities",

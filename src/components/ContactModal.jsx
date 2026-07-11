@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import logo from '../assets/icon2.jpeg';
+import { useLanguage } from '../context/LanguageContext';
 
 // Creación del contexto global para controlar el modal de conversión
 const ModalContext = createContext();
@@ -10,6 +11,7 @@ export function ModalProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false);
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
+  
 
   const openModal = () => {
     setIsOpen(true);
@@ -28,6 +30,7 @@ export function ModalProvider({ children }) {
 
 function ContactModal({ isOpen, step, setStep, formData, setFormData, onClose }) {
   const [countryCode, setCountryCode] = useState('+52');
+  const { t } = useLanguage();
 
   // Bloquear scroll de la página de fondo cuando el modal esté abierto
   useEffect(() => {
@@ -78,52 +81,52 @@ function ContactModal({ isOpen, step, setStep, formData, setFormData, onClose })
         {/* PASO 1: Formulario de Calificación */}
         {step === 1 && (
           <div className="p-8 sm:p-11 text-center animate-slideUp">
-            {/* Isotipo/Logo SVG Estilo WeProm */}
-            {/* Imagen Logo corporativo */}
             <div className="w-20 h-20 mx-auto mb-4 flex items-center justify-center overflow-hidden rounded-full border border-slate-100 shadow-sm">
-              <img 
-                src={logo} 
-                alt="Company Logo" 
-                className="w-full h-full object-cover"
-              />
+              <img src={logo} alt="Company Logo" className="w-full h-full object-cover" />
             </div>
-
+                
             <h3 className="text-2xl sm:text-[26px] font-bold text-slate-900 tracking-tight mb-2">
-              Schedule Your Discovery Session
+              {t('modal.title')}
             </h3>
             <p className="text-sm text-slate-900 max-w-[500px] mx-auto leading-relaxed mb-8">
-              Book an appointment using your company email to speed up the process.
+              {t('modal.subtitle')}
             </p>
-
+                
             <form onSubmit={handleNextStep} className="space-y-5 text-left">
               <div>
-                <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">Name</label>
+                <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">
+                  {t('modal.name')}
+                </label>
                 <input 
                   type="text" 
                   name="name"
                   required
                   value={formData.name}
                   onChange={handleInputChange}
-                  placeholder="Ismael Lopez"
+                  placeholder={t('modal.namePlaceholder')}
                   className="w-full bg-slate-50/50 focus:bg-white border border-slate-200 focus:border-[#3861FB] text-slate-900 rounded-xl px-4 py-3.5 text-sm font-medium transition-all duration-300 outline-none shadow-sm focus:shadow-[0_0_0_4px_rgba(56,97,251,0.1)]"
                 />
               </div>
-
+                
               <div>
-                <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">Company Email</label>
+                <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">
+                  {t('modal.email')}
+                </label>
                 <input 
                   type="email" 
                   name="email"
                   required
                   value={formData.email}
                   onChange={handleInputChange}
-                  placeholder="contacto@promexico.mx"
+                  placeholder={t('modal.emailPlaceholder')}
                   className="w-full bg-slate-50/50 focus:bg-white border border-slate-200 focus:border-[#3861FB] text-slate-900 rounded-xl px-4 py-3.5 text-sm font-medium transition-all duration-300 outline-none shadow-sm focus:shadow-[0_0_0_4px_rgba(56,97,251,0.1)]"
                 />
               </div>
-
+                
               <div>
-                <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">Phone</label>
+                <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">
+                  {t('modal.phone')}
+                </label>
                 <div className="flex rounded-xl shadow-sm bg-slate-50/50 border border-slate-200 focus-within:border-[#3861FB] focus-within:bg-white focus-within:shadow-[0_0_0_4px_rgba(56,97,251,0.1)] transition-all duration-300 overflow-hidden">
                   <div className="flex items-center space-x-1.5 px-3 border-r border-slate-200 bg-slate-50">
                     <span className="text-sm">🇲🇽</span>
@@ -143,17 +146,17 @@ function ContactModal({ isOpen, step, setStep, formData, setFormData, onClose })
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    placeholder="55 2234 89"
+                    placeholder={t('modal.phonePlaceholder')}
                     className="w-full bg-transparent text-slate-900 rounded-r-xl px-4 py-3.5 text-sm font-medium outline-none"
                   />
                 </div>
               </div>
-
+                
               <button 
                 type="submit"
                 className="w-full bg-[#3861FB] hover:bg-[#254EDB] text-white font-semibold text-sm py-4 rounded-xl transition-all duration-300 mt-4 shadow-lg shadow-blue-600/10 active:scale-[0.99]"
               >
-                Next Step →
+                {t('modal.nextStep')}
               </button>
             </form>
           </div>
@@ -162,21 +165,19 @@ function ContactModal({ isOpen, step, setStep, formData, setFormData, onClose })
         {/* PASO 2: Agendamiento Integrado (Calendly Embebido) */}
         {step === 2 && (
           <div className="animate-slideUp flex flex-col h-[620px] max-h-[85vh]">
-            {/* Header del Agendador */}
             <div className="p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
               <button 
                 onClick={() => setStep(1)} 
                 className="text-xs font-bold text-slate-500 hover:text-[#3861FB] flex items-center space-x-1 transition-colors"
               >
-                <span>← Back</span>
+                <span>{t('modal.back')}</span>
               </button>
               <div className="text-center pr-12">
-                <span className="text-[10px] tracking-wider font-bold text-slate-400 uppercase">Work with Us</span>
-                <p className="text-xs font-semibold text-slate-700">Schedule a Meeting</p>
+                <span className="text-[10px] tracking-wider font-bold text-slate-400 uppercase">{t('modal.workWithUs')}</span>
+                <p className="text-xs font-semibold text-slate-700">{t('modal.scheduleMeeting')}</p>
               </div>
             </div>
 
-            {/* Iframe Interactivo con Animación de Carga */}
             <div className="w-full flex-1 relative bg-white">
               <iframe
                 title="Calendly Scheduler"
@@ -187,6 +188,7 @@ function ContactModal({ isOpen, step, setStep, formData, setFormData, onClose })
             </div>
           </div>
         )}
+
       </div>
     </div>
   );

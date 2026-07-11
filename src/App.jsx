@@ -13,14 +13,12 @@ import Team from './components/Team';
 import HowWeWork from './components/HowWeWork';
 import RiskMitigationFAQs from './components/RiskMitigationFAQs';
 import Footer from './components/Footer';
-
-// 1. IMPORTAR EL NUEVO COMPONENTE PREMIUM DE TRANSICIÓN
 import ScrollReveal from './components/ScrollReveal';
 
 export default function App() {
   return (
-    <ModalProvider>
-      <LanguageProvider>   {/* ← ENVOLVER AQUÍ */}
+    <LanguageProvider>  {/* ← LanguageProvider PRIMERO */}
+      <ModalProvider>   {/* ← ModalProvider DENTRO */}
         <div className="bg-slate-950 w-full min-h-screen text-slate-100 antialiased selection:bg-indigo-500 selection:text-white">
           <Navbar />
           <Hero />
@@ -35,7 +33,7 @@ export default function App() {
           <ScrollReveal><RiskMitigationFAQs /></ScrollReveal>
           <Footer />
         </div>
-      </LanguageProvider>
-    </ModalProvider>
+      </ModalProvider>
+    </LanguageProvider>
   );
 }

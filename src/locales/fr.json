@@ -52,7 +52,15 @@
           "footer": "Pour dominer la part de marché régionale de manière organique.",
           "cta": "Planifier un Appel Découverte →"
         }
-      ]
+      ],
+
+      "weDeliver": "NOUS OFFRONS :",
+        "wheelLabels": {
+          "softLanding": "Atterrissage en Douceur & Expansion",
+          "strategicPositioning": "Positionnement Stratégique",
+          "marketResearch": "Étude de Marché"
+        }
+
     },
 
   "stats": {
@@ -334,6 +342,23 @@
     ],
     "cta": "Planifier un Appel Découverte"
   },
+
+  "modal": {
+      "title": "Planifiez Votre Session Découverte",
+      "subtitle": "Prenez rendez-vous en utilisant votre email professionnel pour accélérer le processus.",
+      "name": "Nom",
+      "email": "Email Professionnel",
+      "phone": "Téléphone",
+      "nextStep": "Étape suivante →",
+      "back": "← Retour",
+      "workWithUs": "Travailler avec Nous",
+      "scheduleMeeting": "Planifier une Réunion",
+      "namePlaceholder": "Ismael Lopez",
+      "emailPlaceholder": "contacto@promexico.mx",
+      "phonePlaceholder": "55 2234 89"
+    },
+
+
   "footer": {
     "explore": "Explorer",
     "global": "Capacités Internationales",

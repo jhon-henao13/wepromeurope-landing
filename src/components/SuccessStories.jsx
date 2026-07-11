@@ -99,7 +99,7 @@ export default function SuccessStories() {
           </div>
 
           {/* Columna derecha: panel de detalles */}
-          <div className="w-full lg:col-span-7 relative min-h-[480px] sm:min-h-[420px] lg:min-h-[450px] mt-2 lg:mt-0">
+          <div className="w-full lg:col-span-7 relative min-h-[700px] sm:min-h-[450px] lg:min-h-[480px] mt-2 lg:mt-0">
             {stories.map((caseItem, idx) => {
               const isCurrent = activeTab === idx;
               let diff = idx - activeTab;
@@ -132,7 +132,7 @@ export default function SuccessStories() {
                         </span>
                         <div className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse" />
                       </div>
-                      <h3 className="text-xl sm:text-2xl font-bold text-white tracking-wide mb-6 leading-snug">
+                      <h3 className="text-lg sm:text-xl font-bold text-white tracking-wide mb-6 leading-snug">
                         {caseItem.metaTitle}
                       </h3>
                       <ul className="space-y-4">

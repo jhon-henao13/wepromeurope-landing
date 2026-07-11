@@ -1,59 +1,17 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useContactModal } from './ContactModal';
-
-const processSteps = [
-  {
-    number: "01",
-    title: "Market Diagnostics",
-    subtitle: "Clarifying opportunities before capital allocation.",
-    description:
-      "Market Research • Feasibility Studies • Competitor Benchmarking • Stakeholder Mapping.",
-  },
-  {
-    number: "02",
-    title: "Strategic Direction",
-    subtitle: "Defining project scale and true market potential.",
-    description:
-      "Positioning Strategy • Value Proposition Design • Risk Mitigation • Market Prioritization.",
-  },
-  {
-    number: "03",
-    title: "Go-to-Market Roadmap",
-    subtitle: "Structuring the exact pathway for local or cross-border entry.",
-    description:
-      "Commercial Engineering • Financial Planning • Distribution Models • Logistics Compliance.",
-  },
-  {
-    number: "04",
-    title: "Message Engineering",
-    subtitle: "Adapting your corporate narrative to local and cultural contexts.",
-    description:
-      "Brand Storytelling • Executive Pitch Collateral • Digital Footprint • Cultural Alignment.",
-  },
-  {
-    number: "05",
-    title: "Market Activation",
-    subtitle: "Rendering the strategic opportunity visible and actionable.",
-    description:
-      "Partner Activation • PR & Media Campaigns • Executive Trade Events • Field Execution.",
-  },
-  {
-    number: "06",
-    title: "Continuous Optimization",
-    subtitle: "Consolidating sustainable, long-term commercial growth.",
-    description:
-      "Executive Tracking • KPI Dashboards • Performance Audits • Strategic Scaling.",
-  },
-];
+import { useLanguage } from '../context/LanguageContext'; // <-- NUEVA
 
 const HowWeWork = () => {
   const { openModal } = useContactModal();
+  const { t } = useLanguage(); // <-- NUEVA
+  const phases = t('howWeWork.phases'); // <-- OBTENER DATOS TRADUCIDOS
 
   return (
-    <section className="relative overflow-hidden bg-slate-50 py-16 md:py-24">
+    <section id="framework" className="relative overflow-hidden bg-slate-50 py-16 md:py-24"> {/* AÑADIR id="framework" */}
 
-      {/* Background Decor */}
+      {/* Background Decor (sin cambios) */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-[#2d61e0]/5 rounded-full blur-3xl" />
         <div className="absolute inset-0 bg-[radial-gradient(#dbe4f0_1px,transparent_1px)] [background-size:34px_34px] opacity-40" />
@@ -61,7 +19,7 @@ const HowWeWork = () => {
 
       <div className="max-w-7xl mx-auto px-6 md:px-16 relative z-10">
 
-        {/* Header */}
+        {/* Header traducido */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -70,15 +28,15 @@ const HowWeWork = () => {
           className="text-center max-w-5xl mx-auto"
         >
           <p className="text-[#2d61e0] font-montserrat font-extrabold tracking-[0.4em] uppercase text-[14px] mb-4">
-            FRAMEWORK
+            {t('nav.framework')} {/* o podrías usar un texto fijo "FRAMEWORK" si prefieres */}
           </p>
 
           <h2 className="font-montserrat text-3xl md:text-5xl font-bold leading-tight tracking-wide bg-gradient-to-r from-slate-950 via-slate-900 to-[#2d61e0] bg-clip-text text-transparent selective-gradient-animate drop-shadow-[0_2px_10px_rgba(45,97,224,0.03)]">
-            Our Phased Execution Architecture
+            {t('howWeWork.title')}
           </h2>
 
           <p className="mt-4 text-black leading-relaxed text-base md:text-xl max-w-5xl mx-auto">
-            A structured way to move EU-LATAM opportunities forward, guided by experts at every step. International expansion is not a single action — it is a clear process.
+            {t('howWeWork.subtitle')}
           </p>
         </motion.div>
 
@@ -89,9 +47,9 @@ const HowWeWork = () => {
           <div className="hidden lg:block absolute top-12 left-8 right-8 h-[1px] bg-gradient-to-r from-[#2d61e0]/10 via-[#2d61e0]/30 to-[#2d61e0]/10" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {processSteps.map((step, index) => (
+            {phases.map((step, index) => ( // <-- USAR phases en lugar de processSteps
               <motion.div
-                key={step.number}
+                key={index} // <-- Cambiar key a index porque ya no tenemos number
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -144,12 +102,12 @@ const HowWeWork = () => {
                         duration-500
                       "
                     >
-                      {step.number}
+                      {`0${index + 1}`} {/* Generar número dinámico */}
                     </span>
 
                     {/* Technical Stage Badge */}
                     <div className="text-[10px] uppercase font-bold tracking-widest text-slate-400 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-100 group-hover:border-[#2d61e0]/10 group-hover:bg-[#2d61e0]/5 group-hover:text-[#2d61e0] transition-all duration-500">
-                      Phase {step.number}
+                      Phase {`0${index + 1}`}
                     </div>
                   </div>
 
@@ -160,11 +118,11 @@ const HowWeWork = () => {
                     </h3>
 
                     <p className="text-[#2d61e0]/90 text-xs font-medium tracking-wide leading-relaxed mb-4 uppercase">
-                      {step.subtitle}
+                      {step.description} {/* Usamos description como subtítulo porque en el JSON es la descripción corta */}
                     </p>
 
                     <p className="text-slate-950 text-sm leading-relaxed font-light mt-auto">
-                      {step.description}
+                      {step.tags} {/* Aquí van las etiquetas */}
                     </p>
                   </div>
 
@@ -188,7 +146,7 @@ const HowWeWork = () => {
           </div>
         </div>
 
-        {/* Corporate Statement */}
+        {/* Corporate Statement traducido */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -198,16 +156,16 @@ const HowWeWork = () => {
         >
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="font-montserrat text-2xl md:text-3xl font-bold text-black">
-              ADAPTIVE EXECUTION
+              {t('howWeWork.adaptive').split(':')[0]} {/* "Adaptive Execution" o similar */}
             </h3>
 
             <p className="mt-4 mb-8 text-slate-800 leading-relaxed">
-              We evaluate the growth areas of each organization and build the next step to move it forward.
+              {t('howWeWork.adaptive')}
             </p>
 
             <div className="w-full flex justify-center">
-              <button onClick={openModal} className="group relative inline-flex items-center space-x-2.5 bg-[#3861FB] hover:bg-[#254EDB]    text-white font-bold text-sm py-5 px-8 rounded transition-all duration-300 ease-out shadow-   [0_10px_25px_-5px_rgba(56,97,251,0.4)] hover:shadow-[0_15px_35px_rgba(56,97,251,0.6)] hover:-translate-y-0.5   active:translate-y-0">
-                <span>Request Market Entry Diagnostic</span>
+              <button onClick={openModal} className="group relative inline-flex items-center space-x-2.5 bg-[#3861FB] hover:bg-[#254EDB] text-white font-bold text-sm py-5 px-8 rounded transition-all duration-300 ease-out shadow-[0_10px_25px_-5px_rgba(56,97,251,0.4)] hover:shadow-[0_15px_35px_rgba(56,97,251,0.6)] hover:-translate-y-0.5 active:translate-y-0">
+                <span>{t('howWeWork.cta')}</span>
                 <span className="transform group-hover:translate-x-1 transition-transform duration-300 text-white/90">→</span>
               </button>
             </div>

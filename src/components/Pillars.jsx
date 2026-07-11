@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import worldGlobe from '../assets/world-globe.webp';
 import bgIcon from '../assets/icon.webp';
 import { useContactModal } from './ContactModal';
+import { useLanguage } from '../context/LanguageContext';
 
 const PILLARS_DATA = [
   {
@@ -47,7 +48,10 @@ const PILLARS_DATA = [
 
 export default function Pillars() {
   const { openModal } = useContactModal();
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState(0);
+
+  const pillars = t('pillars.items');
 
   // Efecto dinámico de rotación del globo central según el pilar seleccionado
   const getWorldRotation = () => {
@@ -57,7 +61,7 @@ export default function Pillars() {
   };
 
   return (
-    <section className="relative w-full min-h-screen bg-gradient-to-br from-[#0B1E43] via-[#071126] to-[#03060F] flex flex-col overflow-hidden font-sans border-t border-white/5 py-16 px-4 sm:px-8 select-none">
+    <section id="global-capabilities" className="relative w-full min-h-screen bg-gradient-to-br from-[#0B1E43] via-[#071126] to-[#03060F] flex flex-col overflow-hidden font-sans border-t border-white/5 py-16 px-4 sm:px-8 select-none">
       
       {/* 1. CORRECCIÓN DEL SVG GRID PATTERN: Integrado por CSS nativo para evitar fallos de renderizado */}
       <div 
@@ -75,10 +79,12 @@ export default function Pillars() {
       {/* Contenedor General Estructurado */}
       <div className="w-full max-w-7xl mx-auto space-y-2 mt-4 mb-2 lg:mb-4 text-center lg:text-left z-10">
         <span className="text-[11px] tracking-[0.3em] text-blue-400 font-bold uppercase block">
-          Global Capabilities
+          {/* Global Capabilities */}
+          {t('nav.global')}
         </span>
         <h2 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-          Three Pillars of Enterprise <br className="hidden sm:inline" /> Market Entry
+          {/* Three Pillars of Enterprise <br className="hidden sm:inline" /> Market Entry */}
+          {t('pillars.title')}
         </h2>
       </div>
 
@@ -194,8 +200,8 @@ export default function Pillars() {
           
           <div className="relative w-full max-w-xl h-[520px] sm:h-[480px] mx-auto lg:mx-0">
             
-            {PILLARS_DATA.map((pillar) => {
-              const isActive = activeTab === pillar.id;
+            {pillars.map((pillar, index) => {
+              const isActive = activeTab === index;
               
               // Estructuración del Stack de capas infinitas tridimensionales
               let diff = pillar.id - activeTab;
@@ -216,7 +222,7 @@ export default function Pillars() {
 
               return (
                 <div
-                  key={pillar.id}
+                  key={index}
                   className={`absolute inset-0 w-full h-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${stackStyles}`}
                 >
                   {/* Cuerpo Glassmorphism Premium Claro de la Tarjeta */}
@@ -237,7 +243,7 @@ export default function Pillars() {
                         {pillar.title}
                       </h3>
                       <p className="text-sm sm:text-[15px] text-slate-300 font-light mb-6 tracking-wide text-left leading-relaxed">
-                        {pillar.tagline}
+                        {pillar.description}
                       </p>
 
                       {/* Deliverables */}
@@ -245,7 +251,7 @@ export default function Pillars() {
                         <span className="text-[10px] tracking-[0.2em] uppercase text-blue-400 font-bold block mb-1">
                           We deliver:
                         </span>
-                        {pillar.deliverables.map((item, idx) => (
+                        {pillar.offerings && pillar.offerings.map((item, idx) => (
                           <div key={idx} className="flex items-start space-x-2.5 text-slate-200 text-sm sm:text-[15px]">
                             <span className="text-blue-400 font-bold select-none mt-0.5">✓</span>
                             <span className="font-normal text-slate-200/90 leading-snug text-left">{item}</span>
@@ -262,8 +268,11 @@ export default function Pillars() {
                       
                       <div className="flex justify-start">
                         <button onClick={openModal} className="group inline-flex items-center space-x-2 bg-transparent hover:bg-white/5 text-white border border-white/30 hover:border-white/60 font-semibold text-xs py-2.5 px-5 rounded tracking-wide transition-all duration-300 shadow-sm">
-                          <span>Schedule a Discovery Call</span>
-                          <span className="transform group-hover:translate-x-1 transition-transform duration-300 text-blue-400">→</span>
+
+                          {/* <span>Schedule a Discovery Call</span>
+                          <span className="transform group-hover:translate-x-1 transition-transform duration-300 text-blue-400">→</span> */}
+                          <span>{t('common.scheduleCallArrow')}</span>
+
                         </button>
                       </div>
                     </div>

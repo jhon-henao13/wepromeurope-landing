@@ -1,9 +1,11 @@
 import React, { useRef, useState } from 'react';
 import heroVideo from '../assets/hero-bg.mp4';
 import { useContactModal } from './ContactModal';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Hero() {
   const { openModal } = useContactModal();
+  const { t } = useLanguage()
   const videoRef = useRef(null);
   const [isFading, setIsFading] = useState(false);
 
@@ -46,22 +48,26 @@ export default function Hero() {
 
       {/* 3. HERO CONTENT CONTAINER */}
       <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 flex flex-col items-start justify-center">
-        <div className="max-w-3xl space-y-6 md:space-y-8">
+        <div className="max-w-2xl space-y-6 md:space-y-8">
           
           {/* Título Principal Tipográfico Impactante */}
           
           <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold !tracking-[1.2] !leading-[1.15] text-white">
-            Command Your <br />
+            {/* Command Your <br />
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-slate-100 via-slate-200 to-[#3861FB]">
               Cross-Border
             </span> <br />
-            Expansion.
+            Expansion. */}
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-slate-100 via-slate-200 to-[#3861FB]">
+              {t('hero.title')}
+            </span>
           </h1>
 
           {/* Subtítulo de alta legibilidad */}
           <p className="text-base sm:text-base md:text-lg lg:text-xl text-slate-100 tracking-wide leading-relaxed max-w-lg font-light text-balance">
-            We deliver precise Europe-Latin America market-entry diagnostics for capitalized ventures, 
-            safeguarding critical investments through <span className="font-bold text-indigo-400 whitespace-nowrap">35+ years of expertise.</span>
+            {/* We deliver precise Europe-Latin America market-entry diagnostics for capitalized ventures, 
+            safeguarding critical investments through <span className="font-bold text-indigo-400 whitespace-nowrap">35+ years of expertise.</span> */}
+            {t('hero.subtitle')}
           </p>
 
           {/* Botón Call to Action Interactivo */}
@@ -70,7 +76,7 @@ export default function Hero() {
               {/* Brillo dinámico en hover */}
               <div className="absolute inset-0 w-1/2 h-full bg-white/10 skew-x-[-25deg] -translate-x-full group-hover:animate-[shimmer_0.75s_ease-in-out]" />
               
-              <span>Schedule a Discovery Call</span>
+              <span>{t('hero.cta')}</span>
               <svg 
                 className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" 
                 fill="none" 

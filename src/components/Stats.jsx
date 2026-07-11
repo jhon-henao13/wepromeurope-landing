@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 // Hook personalizado premium para animar los números con desaceleración (Ease-Out)
 function useCountUp(target, duration = 2000, trigger = false) {
@@ -31,6 +32,7 @@ function useCountUp(target, duration = 2000, trigger = false) {
 export default function Stats() {
   const [isIntersecting, setIsIntersecting] = useState(false);
   const sectionRef = useRef(null);
+  const { t } = useLanguage();
 
   // Intersection Observer para disparar la animación solo cuando el usuario haga scroll hasta la sección
   useEffect(() => {
@@ -87,7 +89,7 @@ export default function Stats() {
               <span className="text-blue-400 font-extrabold ml-1 transform group-hover:rotate-12 transition-transform duration-300">+</span>
             </div>
             <p className="text-sm sm:text-base font-medium text-slate-800 tracking-wide">
-              Executed Projects
+              {t('stats.projects')}
             </p>
           </div>
 
@@ -98,7 +100,7 @@ export default function Stats() {
               <span className="text-blue-400 font-extrabold ml-1 transform group-hover:rotate-12 transition-transform duration-300">+</span>
             </div>
             <p className="text-sm sm:text-base font-medium text-slate-800 tracking-wide">
-              Years
+              {t('stats.years')}
             </p>
           </div>
 
@@ -109,7 +111,7 @@ export default function Stats() {
               <span className="text-blue-400 font-extrabold ml-1 transform group-hover:rotate-12 transition-transform duration-300">+</span>
             </div>
             <p className="text-sm sm:text-base font-medium text-slate-800 tracking-wide">
-              Enterprise Clients
+              {t('stats.clients')}
             </p>
           </div>
 

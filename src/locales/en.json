@@ -1,0 +1,259 @@
+{
+  "topbar": "Looking for local market insights? We deliver both local market research and cross-border expansion solutions.",
+  "nav": {
+    "global": "Global Capabilities",
+    "local": "Local Capabilities",
+    "stories": "Success Stories",
+    "framework": "Framework",
+    "requestDiagnostic": "Request Diagnostic"
+  },
+  "hero": {
+    "title": "Command Your Cross-Border Expansion.",
+    "subtitle": "We deliver precise Europe-Latin America market-entry diagnostics for capitalized ventures, safeguarding critical investments through 35+ years of expertise.",
+    "cta": "Schedule a Discovery Call"
+  },
+
+  "pillars": {
+      "title": "Three Pillars of the Company",
+      "items": [
+        {
+          "title": "1. Market Research & In-depth Intelligence",
+          "description": "Eliminate risk before investing your capital.",
+          "offerings": [
+            "Strategic Feasibility Studies",
+            "Advanced Geomarketing Diagnostics",
+            "Qualitative and Quantitative Focus Groups",
+            "Competitive Benchmarking Analysis"
+          ],
+          "footer": "To validate expansions with zero blind spots.",
+          "cta": "Schedule a Discovery Call →"
+        },
+        {
+          "title": "2. Smooth Landing & Expansion Consulting",
+          "description": "Simplify your most complex regulatory, customs, and logistics procedures.",
+          "offerings": [
+            "Custom customs compliance and cross-border structural frameworks",
+            "Secure deployment of franchise networks and legal entities",
+            "Mapping of strategic investment paths with institutional players",
+            "Localization of business operations and supply chains"
+          ],
+          "footer": "To secure operational continuity across jurisdictions.",
+          "cta": "Schedule a Discovery Call →"
+        },
+        {
+          "title": "3. Strategic Positioning & Marketing",
+          "description": "Build and protect your corporate reputation internationally.",
+          "offerings": [
+            "Cross-border public relations campaigns",
+            "Adaptation of brand identities to foreign markets",
+            "High-level diplomatic support at major international trade forums",
+            "Digital authority building and stakeholder alignment"
+          ],
+          "footer": "To dominate regional market share organically.",
+          "cta": "Schedule a Discovery Call →"
+        }
+      ]
+    },
+  
+  "stats": {
+    "projects": "Projects Delivered",
+    "years": "Years of Expertise",
+    "clients": "Enterprise Clients"
+  },
+  "executionMatrix": {
+    "title": "Local Capabilities — Specialized Execution Matrix",
+    "description": "Precise tactical capabilities designed to drive growth and manage complexity, both in local and international markets.",
+    "items": [
+      "Market Research and Economic Intelligence",
+      "International Marketing and Positioning",
+      "Creation, Development and Expansion Consulting",
+      "Institutional Access and Monitoring",
+      "Public Relations",
+      "Commercial Strategy and International Logistics",
+      "Media and Communication Strategy",
+      "Strategic Alliances",
+      "Event Presence and Support",
+      "Project Coordination and Reporting"
+    ],
+    "cta": "Schedule a Discovery Call →"
+  },
+  "successStories": {
+    "title": "Success Stories — Proven Expertise for Your International Development",
+    "stories": [
+      {
+        "title": "PROMÉXICO — International Market Intelligence & Sovereign Investment Attraction",
+        "description": "Design of country-brand positioning and public strategies on an international scale. Conducted in-depth market intelligence studies across five continents to identify major industrial innovation corridors. Contributed to attracting several hundred million dollars in Foreign Direct Investment (FDI) in the automotive, aerospace, and energy sectors."
+      },
+      {
+        "title": "LA NUIT DES PUBLIVORES — Multicultural Adaptation & Internationalization of a Global Event",
+        "description": "Led the multicultural adaptation of this benchmark French cultural event. Deployed international outreach strategies in the United States, Mexico, and Central America. Developed partnerships with top-tier sponsors and contributed to consecutive sold-out venues, strengthening brand value across multiple markets."
+      },
+      {
+        "title": "COCA-COLA — Consumer Behavior Audit & Regional Commercial Acceleration",
+        "description": "Designed regional marketing strategies and specialized event setups in Latin America. Conducted targeted consumer audits to analyze consumption habits and preferences in Mexico and the Caribbean. Identified opportunities for product range optimization, contributing to record sales achievements in the territory."
+      },
+      {
+        "title": "AXA — Competitiveness Optimization & Technology Growth Roadmap",
+        "description": "Conducted advanced market studies to strengthen competitiveness in high-stakes environments. Analyzed market dynamics to optimize the brand's strategic commercial portfolio. Developed an evolving technology roadmap to accelerate market growth in Mexico."
+      },
+      {
+        "title": "TEQUILA HUIZACHE — Cross-border Positioning & Development Corridor Identification",
+        "description": "Developed a premium brand positioning and structured international marketing strategies. Conducted feasibility studies for North American and Eastern European corridors. Identified high-potential distribution channels to optimize market entry and export routes."
+      },
+      {
+        "title": "MCDONALD'S — Operational Localization & Cross-border Franchise Architecture",
+        "description": "Optimized operational and marketing setups to strengthen the franchise model in Latin America. Identified strategic market requirements during the expansion phase in Central America. Adapted the brand platform to local specificities to drive rapid consumer adoption."
+      },
+      {
+        "title": "MERCEDES-BENZ – EQ — Premium Range Deployment & Strategic Distribution Network Merger Feasibility",
+        "description": "Developed the positioning of the EQ electric range in the Mexican market. Conducted national feasibility audits and consumer perception studies as part of a strategic merger of dealerships with Chrysler. Mapped customer segments and consumer behaviors to validate cross-brand commercial viability."
+      },
+      {
+        "title": "FORD — Light Commercial Vehicle Market Feasibility & Strategic Niche Validation",
+        "description": "Conducted market feasibility studies and defined communication guidelines for the launch of a new commercial vehicle range in Mexico. Identified and validated five untapped customer niches and their purchase intentions. In-depth analysis of consumption habits to secure the commercial launch."
+      }
+    ]
+  },
+  "globalFootprint": {
+    "title": "Global Presence — Institutional Leadership",
+    "hubs": [
+      {
+        "name": "WeProm LATAM — Guadalajara, Mexico",
+        "description": "Latin America — Regional market strategy and infrastructure."
+      },
+      {
+        "name": "WeProm Europe — Paris, France",
+        "description": "European Headquarters — Transatlantic intelligence and bilateral development."
+      },
+      {
+        "name": "WeProm North America — Austin, Texas",
+        "description": "United States — Commercial connection to the North American market."
+      }
+    ],
+    "stats": "3 Hubs | 40+ Team Members | 50 Associated Advisors"
+  },
+  "team": {
+    "title": "Our Team",
+    "subtitle": "We are a multicultural, multidisciplinary, and intergenerational team.",
+    "description": "We combine decades of international experience with the vision and agility of new generations. Our team brings together profiles from diverse backgrounds — marketing, foreign trade, finance, economics, communication, international relations, and more — because internationalizing a company requires precisely that: a global vision rather than isolated specialization.",
+    "members": [
+      "José Miguel Ventura Michel — General Director",
+      "Juan Carlos Ventura Pimentel — Strategic Advisor / General Counsel, Grupo WeProm",
+      "Juan Carlos Ventura Michel — Strategic Advisor / General Director, WeProm LATAM",
+      "Oscar Santamaría — Associate International Consultant",
+      "Lisa Lenselle — Commercial Direction & Key Account Relations",
+      "Emilia López — Director of Institutional, Political, and Corporate Communication",
+      "Joe Karam — Process & Financial Risk Management",
+      "Josh Biner — Operations & International Expansion",
+      "Pablo De La Garza — Creativity & Communication Europe-LATAM",
+      "Gustavo Cuéllar — Internationalization & Corporate Culture",
+      "Carlos Martínez — Diplomatic Relations & International Legal Affairs"
+    ],
+    "director": {
+      "name": "José Miguel Ventura Michel — General Director, WeProm Europe",
+      "description": "Advertising, communicator, and trilingual marketing specialist. Over ten years of experience in strategic marketing, market research, and international business development."
+    }
+  },
+  "howWeWork": {
+    "title": "Method — Our Execution Architecture",
+    "subtitle": "A structured approach to accompany opportunities between Europe and Latin America, with expert support at every step. International expansion is not a one-time decision but a methodical process.",
+    "phases": [
+      {
+        "title": "Phase 01 — Market Diagnosis",
+        "description": "Validate opportunities before any investment commitment.",
+        "tags": "Market studies • Feasibility studies • Competitive analysis • Stakeholder mapping"
+      },
+      {
+        "title": "Phase 02 — Strategic Direction",
+        "description": "Define the project scope and assess the market's real potential.",
+        "tags": "Positioning strategy • Value proposition • Risk mitigation • Market prioritization"
+      },
+      {
+        "title": "Phase 03 — Go-to-Market Roadmap",
+        "description": "Structure an entry strategy adapted to local or international markets.",
+        "tags": "Commercial engineering • Financial planning • Distribution models • Logistics compliance"
+      },
+      {
+        "title": "Phase 04 — Message Engineering",
+        "description": "Adapt your communication to cultural realities and expectations of target markets.",
+        "tags": "Brand storytelling • Executive presentations • Digital presence • Cultural alignment"
+      },
+      {
+        "title": "Phase 05 — Market Activation",
+        "description": "Transform strategy into operational deployment.",
+        "tags": "Partner activation • PR and media • Business events • Field execution"
+      },
+      {
+        "title": "Phase 06 — Continuous Optimization",
+        "description": "Sustain growth and enhance long-term performance.",
+        "tags": "Executive monitoring • KPI dashboards • Performance audits • Strategic optimization"
+      }
+    ],
+    "adaptive": "Adaptive Execution: We assess the growth drivers specific to each organization to define and implement the next steps of its development.",
+    "cta": "Request a Market Entry Diagnostic →"
+  },
+  "faq": {
+    "title": "Mitigating Risk: FAQ",
+    "questions": [
+      {
+        "q": "Why invest in market research, and how are projects budgeted?",
+        "a": "Market research acts as financial insurance against capital loss; deciding based on assumptions costs more than targeted research. WeProm Europe refuses standardized rates; each project is custom. Budgets depend strictly on geographical scope, sample complexity, and competitive analysis."
+      },
+      {
+        "q": "What is your geographical reach, and can you conduct simultaneous studies in multiple countries?",
+        "a": "Yes. With our hubs (France, Mexico, and the United States) and networks, we coordinate simultaneous or independent studies across Europe and Latin America. A dedicated project coordinator synchronizes global data models on a single timeline to seamlessly manage time zones."
+      },
+      {
+        "q": "Do you have experience in our specific industry or in very niche segments?",
+        "a": "Our methodology adapts to all sectors. Having supported global leaders in automotive, aerospace, healthcare, agribusiness, and cosmetics, we adapt to local realities. For restricted B2B niches, specialized recruiters and advanced competitive intelligence ensure access to target segments."
+      },
+      {
+        "q": "What methodologies do you use to ensure statistically reliable data?",
+        "a": "We deploy custom surveys, executive interviews, focus groups, and secondary source audits. To ensure statistical reliability, our teams apply strict selection criteria and demographic participation quotas. All data collections undergo rigorous quality control protocols, delivering insights directly actionable at the board level."
+      },
+      {
+        "q": "How do you ensure legal compliance and data protection across cross-border jurisdictions?",
+        "a": "We operate strictly within local and cross-border legal regulations. All data collection is fully compliant with EU GDPR as well as data protection regulations in Latin America. This secure infrastructure fully protects your company from regulatory risks and preserves its market reputation."
+      },
+      {
+        "q": "What deliverables do we receive, and what support do you provide after delivery?",
+        "a": "Projects conclude in 4 to 8 weeks with a Strategic Executive Report, a board presentation, and methodological appendices in English, French, or Spanish. After delivery, we provide active operational support for the next steps of your development: smooth landing deployment, distribution setup, and localized marketing."
+      },
+      {
+        "q": "How do your research methodologies adapt to regional cultural differences?",
+        "a": "Our multicultural team and international alliance network localize each survey, each sample, and each approach. This ensures that the business and cultural nuances of each European or Latin American market are precisely captured for informed decision-making."
+      },
+      {
+        "q": "Does the final market study include an analysis of our direct competitors?",
+        "a": "Yes. We include an in-depth competitive analysis, corporate positioning audits, and market share assessments. This allows your management to identify competitor vulnerabilities and spot immediate business opportunities in the target territory."
+      },
+      {
+        "q": "What does your team need from our organization to start the project?",
+        "a": "We only need an initial briefing session to define your essential information needs, your target audience profile, and your expansion objectives. From there, our team structures the entire technical methodology autonomously."
+      },
+      {
+        "q": "How do you select and recruit participants for surveys and focus groups?",
+        "a": "We work with specialized B2B and B2C recruiters specific to each region. Participants are selected based on strict demographic, professional, and consumption criteria, ensuring that every data point comes from a verified representative of your target market."
+      }
+    ],
+    "cta": "Schedule a Discovery Call"
+  },
+  "footer": {
+    "explore": "Explore",
+    "global": "Global Capabilities",
+    "local": "Local Capabilities",
+    "stories": "Success Stories",
+    "framework": "Framework",
+    "requestDiagnostic": "Request Diagnostic",
+    "copyright": "© 2026 WeProm Europe — All rights reserved. | Designed by dealbamkt",
+    "legal": "Legal Notice",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookie Policy",
+    "manageCookies": "Manage Cookies"
+  },
+  "common": {
+    "requestDiagnostic": "Request Diagnostic",
+    "scheduleCall": "Schedule a Discovery Call",
+    "scheduleCallArrow": "Schedule a Discovery Call →"
+  }
+}

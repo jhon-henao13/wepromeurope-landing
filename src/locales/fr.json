@@ -78,43 +78,88 @@
     ],
     "cta": "Planifier un Appel Découverte →"
   },
+
+
   "successStories": {
-    "title": "Réussites — Une Expertise Éprouvée Au Service De Votre Développement International",
-    "stories": [
-      {
-        "title": "PROMÉXICO — Intelligence de Marché Internationale & Attraction des Investissements Souverains",
-        "description": "Conception du positionnement de marque-pays et des stratégies publiques à l'échelle internationale. Réalisation d'études approfondies d'intelligence de marché sur cinq continents afin d'identifier les principaux corridors d'innovation industrielle. Contribution à l'attraction de plusieurs centaines de millions de dollars d'Investissements Directs Étrangers (IDE) dans les secteurs de l'automobile, de l'aérospatial et de l'énergie."
-      },
-      {
-        "title": "LA NUIT DES PUBLIVORES — Adaptation Multiculturelle & Internationalisation d'un Evénement Mondial",
-        "description": "Pilotage de l'adaptation multiculturelle de cet événement culturel français de référence. Déploiement de stratégies de rayonnement international aux États-Unis, au Mexique et en Amérique centrale. Développement de partenariats avec des sponsors de premier plan et contribution à des salles combles consécutives, renforçant la valeur de la marque sur plusieurs marchés."
-      },
-      {
-        "title": "COCA-COLA — Audit des Comportements Consommateurs & Accélération Commerciale Régionale",
-        "description": "Conception de stratégies de marketing régional et de dispositifs événementiels spécialisés en Amérique latine. Réalisation d'audits consommateurs ciblés afin d'analyser les habitudes et préférences de consommation au Mexique et dans les Caraïbes. Identification d'opportunités d'optimisation des gammes de produits, contribuant à l'atteinte de records historiques de ventes sur le territoire."
-      },
-      {
-        "title": "AXA — Optimisation de la Compétitivité & Feuille de Route de Croissance Technologique",
-        "description": "Réalisation d'études de marché avancées visant à renforcer la compétitivité dans des environnements à forts enjeux. Analyse des dynamiques de marché afin d'optimiser le portefeuille commercial stratégique de la marque. Élaboration d'une feuille de route technologique évolutive destinée à accélérer la croissance du marché au Mexique."
-      },
-      {
-        "title": "TEQUILA HUIZACHE — Positionnement Transfrontalier & Identification de Corridors de Développement",
-        "description": "Développement d'un positionnement de marque premium et de stratégies structurées de commercialisation à l'international. Réalisation d'études de faisabilité pour les corridors nord-américain et est-européen. Identification de canaux de distribution à fort potentiel afin d'optimiser l'entrée sur le marché et les routes d'exportation."
-      },
-      {
-        "title": "MCDONALD'S — Localisation Opérationnelle & Architecture de Franchise Transfrontalière",
-        "description": "Optimisation des dispositifs opérationnels et marketing afin de renforcer le modèle de franchise en Amérique latine. Identification des exigences stratégiques des marchés lors de la phase d'expansion en Amérique centrale. Adaptation de la plateforme de marque aux spécificités locales afin de favoriser une adoption rapide par les consommateurs."
-      },
-      {
-        "title": "MERCEDES-BENZ – EQ — Déploiement d'une Gamme Premium & Faisabilité d'une Fusion Stratégique du Réseau de Distribution",
-        "description": "Développement du positionnement de la gamme électrique EQ sur le marché mexicain. Réalisation d'audits nationaux de faisabilité et d'études de perception consommateur dans le cadre d'une fusion stratégique des points de vente avec Chrysler. Cartographie des segments de clientèle et des comportements consommateurs afin de valider la viabilité commerciale inter-marques."
-      },
-      {
-        "title": "FORD — Faisabilité du Marché des Véhicules Utilitaires Légers & Validation de Niches stratégiques",
-        "description": "Réalisation d'études de faisabilité de marché et définition des orientations de communication pour le lancement d'une nouvelle gamme de véhicules utilitaires au Mexique. Identification et validation de cinq niches de clientèle inexploitées ainsi que de leurs intentions d'achat. Analyse approfondie des habitudes de consommation afin de sécuriser le lancement commercial."
-      }
-    ]
-  },
+      "title": "Réussites — Une Expertise Éprouvée Au Service De Votre Développement International",
+      "subtitle": "Résultats Transfrontaliers Prouvés",
+      "stories": [
+        {
+          "client": "PROMÉXICO",
+          "metaTitle": "Intelligence de Marché Internationale & Attraction des Investissements Souverains",
+          "body": [
+            { "highlight": "Conception", "text": " du positionnement de marque-pays et des stratégies publiques à l'échelle internationale." },
+            { "highlight": "Réalisation", "text": " d'études approfondies d'intelligence de marché sur cinq continents afin d'identifier les principaux corridors d'innovation industrielle." },
+            { "highlight": "Contribution", "text": " à l'attraction de plusieurs centaines de millions de dollars d'Investissements Directs Étrangers (IDE) dans les secteurs de l'automobile, de l'aérospatial et de l'énergie." }
+          ]
+        },
+        {
+          "client": "LA NUIT DES PUBLIVORES",
+          "metaTitle": "Adaptation Multiculturelle & Internationalisation d'un Evénement Mondial",
+          "body": [
+            { "highlight": "Pilotage", "text": " de l'adaptation multiculturelle de cet événement culturel français de référence." },
+            { "highlight": "Déploiement", "text": " de stratégies de rayonnement international aux États-Unis, au Mexique et en Amérique centrale." },
+            { "highlight": "Développement", "text": " de partenariats avec des sponsors de premier plan et contribution à des salles combles consécutives, renforçant la valeur de la marque sur plusieurs marchés." }
+          ]
+        },
+        {
+          "client": "COCA-COLA",
+          "metaTitle": "Audit des Comportements Consommateurs & Accélération Commerciale Régionale",
+          "body": [
+            { "highlight": "Conception", "text": " de stratégies de marketing régional et de dispositifs événementiels spécialisés en Amérique latine." },
+            { "highlight": "Réalisation", "text": " d'audits consommateurs ciblés afin d'analyser les habitudes et préférences de consommation au Mexique et dans les Caraïbes." },
+            { "highlight": "Identification", "text": " d'opportunités d'optimisation des gammes de produits, contribuant à l'atteinte de records historiques de ventes sur le territoire." }
+          ]
+        },
+        {
+          "client": "AXA",
+          "metaTitle": "Optimisation de la Compétitivité & Feuille de Route de Croissance Technologique",
+          "body": [
+            { "highlight": "Réalisation", "text": " d'études de marché avancées visant à renforcer la compétitivité dans des environnements à forts enjeux." },
+            { "highlight": "Analyse", "text": " des dynamiques de marché afin d'optimiser le portefeuille commercial stratégique de la marque." },
+            { "highlight": "Élaboration", "text": " d'une feuille de route technologique évolutive destinée à accélérer la croissance du marché au Mexique." }
+          ]
+        },
+        {
+          "client": "TEQUILA HUIZACHE",
+          "metaTitle": "Positionnement Transfrontalier & Identification de Corridors de Développement",
+          "body": [
+            { "highlight": "Développement", "text": " d'un positionnement de marque premium et de stratégies structurées de commercialisation à l'international." },
+            { "highlight": "Réalisation", "text": " d'études de faisabilité pour les corridors nord-américain et est-européen." },
+            { "highlight": "Identification", "text": " de canaux de distribution à fort potentiel afin d'optimiser l'entrée sur le marché et les routes d'exportation." }
+          ]
+        },
+        {
+          "client": "MCDONALD'S",
+          "metaTitle": "Localisation Opérationnelle & Architecture de Franchise Transfrontalière",
+          "body": [
+            { "highlight": "Optimisation", "text": " des dispositifs opérationnels et marketing afin de renforcer le modèle de franchise en Amérique latine." },
+            { "highlight": "Identification", "text": " des exigences stratégiques des marchés lors de la phase d'expansion en Amérique centrale." },
+            { "highlight": "Adaptation", "text": " de la plateforme de marque aux spécificités locales afin de favoriser une adoption rapide par les consommateurs." }
+          ]
+        },
+        {
+          "client": "MERCEDES-BENZ - EQ",
+          "metaTitle": "Déploiement d'une Gamme Premium & Faisabilité d'une Fusion Stratégique du Réseau de Distribution",
+          "body": [
+            { "highlight": "Développement", "text": " du positionnement de la gamme électrique EQ sur le marché mexicain." },
+            { "highlight": "Réalisation", "text": " d'audits nationaux de faisabilité et d'études de perception consommateur dans le cadre d'une fusion stratégique des points de vente avec Chrysler." },
+            { "highlight": "Cartographie", "text": " des segments de clientèle et des comportements consommateurs afin de valider la viabilité commerciale inter-marques." }
+          ]
+        },
+        {
+          "client": "FORD",
+          "metaTitle": "Faisabilité du Marché des Véhicules Utilitaires Légers & Validation de Niches stratégiques",
+          "body": [
+            { "highlight": "Réalisation", "text": " d'études de faisabilité de marché et définition des orientations de communication pour le lancement d'une nouvelle gamme de véhicules utilitaires au Mexique." },
+            { "highlight": "Identification et validation", "text": " de cinq niches de clientèle inexploitées ainsi que de leurs intentions d'achat." },
+            { "highlight": "Analyse approfondie", "text": " des habitudes de consommation afin de sécuriser le lancement commercial." }
+          ]
+        }
+      ]
+    },
+
+
   "globalFootprint": {
     "tag": "Présence Mondiale",
     "title": "Leadership Institutionnel",
@@ -137,28 +182,74 @@
     ],
     "stats": "3 Hubs | 40+ Membres de l'Équipe | 50 Conseillers Associés"
   },
+
   "team": {
-    "title": "Notre Équipe",
-    "subtitle": "Nous sommes une équipe multiculturelle, pluridisciplinaire et intergénérationnelle.",
-    "description": "Nous combinons des décennies d'expérience internationale avec la vision et l'agilité des nouvelles générations. Notre équipe rassemble des profils aux parcours variés — marketing, commerce extérieur, finance, économie, communication, relations internationales, et bien plus encore — car internationaliser une entreprise exige précisément cela : une vision globale plutôt qu'une spécialisation isolée.",
-    "members": [
-      "José Miguel Ventura Michel— Directeur Général",
-      "Juan Carlos Ventura Pimentel — Conseiller Stratégique / Conseiller Général, Grupo WeProm",
-      "Juan Carlos Ventura Michel— Conseiller Stratégique / Directeur Général, WeProm LATAM",
-      "Oscar Santamaría — Consultant International Associé",
-      "Lisa Lenselle — Direction Commerciale & Relations Grands Comptes",
-      "Emilia López — Directrice de la Communication Institutionnelle, Politique et Corporate",
-      "Joe Karam — Gestion des Processus & Risques Financiers",
-      "Josh Biner — Opérations & Expansion Internationale",
-      "Pablo De La Garza — Créativité & Communication Europe-LATAM",
-      "Gustavo Cuéllar — Internationalisation & Culture d'Entreprise",
-      "Carlos Martínez — Relations Diplomatiques & Affaires Juridiques Internationales"
-    ],
-    "director": {
-      "name": "José Miguel Ventura Michel — Directeur Général, WeProm Europe",
-      "description": "Publicitaire, communicant et spécialiste marketing trilingue. Plus de dix ans d'expérience en marketing stratégique, études de marché et développement commercial international."
-    }
-  },
+      "title": "Notre Équipe",
+      "subtitle": "Nous sommes une équipe multiculturelle, pluridisciplinaire et intergénérationnelle.",
+      "description": "Nous combinons des décennies d'expérience internationale avec la vision et l'agilité des nouvelles générations. Notre équipe rassemble des profils aux parcours variés — marketing, commerce extérieur, finance, économie, communication, relations internationales, et bien plus encore — car internationaliser une entreprise exige précisément cela : une vision globale plutôt qu'une spécialisation isolée.",
+      "members": [
+        {
+          "name": "José Miguel Ventura Michel",
+          "role": "Directeur Général, WeProm Europe",
+          "desc": "Publicitaire, communicant et spécialiste marketing trilingue. Plus de dix ans d'expérience en marketing stratégique, études de marché et développement commercial international."
+        },
+        {
+          "name": "Juan Carlos Ventura Pimentel",
+          "role": "Conseiller Stratégique / Conseiller Général, Grupo WeProm",
+          "desc": "Plus de 35 ans en marketing international et développement commercial. Vaste expérience publique et privée avec gouvernements, ambassades et organisations multilatérales à travers les Amériques, l'Europe, l'Afrique et l'Asie."
+        },
+        {
+          "name": "Juan Carlos Ventura Michel",
+          "role": "Conseiller Stratégique / Directeur Général, WeProm LATAM",
+          "desc": "Entrepreneur et consultant avec plus de 15 ans d'expérience internationale en marketing, études de marché, positionnement de marque et expansion commerciale."
+        },
+        {
+          "name": "Oscar Santamaría Casas",
+          "role": "Consultant International Associé, WeProm Europe",
+          "desc": "Plus de 35 ans d'expérience en coopération internationale, attraction d'investissements étrangers et développement commercial entre le Mexique et l'Union européenne, dans les secteurs public et privé."
+        },
+        {
+          "name": "Lisa Lenselle",
+          "role": "Direction Commerciale & Relations Grands Comptes",
+          "desc": "Développement marketing international et d'opportunités commerciales, avec une solide expérience dans les secteurs public et privé en Europe et en Amérique Latine."
+        },
+        {
+          "name": "Emilia López Matute",
+          "role": "Directrice de la Communication Institutionnelle, Politique et Corporate",
+          "desc": "Spécialisée en communication politique, d'entreprise et numérique, avec un accent sur le développement de stratégies multicanal pour la promotion et le positionnement de marques et d'institutions."
+        },
+        {
+          "name": "Joe Karam",
+          "role": "Gestion des Processus & Risques Financiers",
+          "desc": "Ingénieur spécialisé dans les environnements financiers internationaux, conseillant des clients mondiaux en analyse fonctionnelle et gestion des risques financiers."
+        },
+        {
+          "name": "Josh Biner",
+          "role": "Opérations & Expansion Internationale",
+          "desc": "Conseiller international pour la planification stratégique, l'innovation, la durabilité et les projets d'expansion, spécialisé dans les fusions, acquisitions et transformations commerciales au sein des multinationales."
+        },
+        {
+          "name": "Pablo De la Garza",
+          "role": "Créativité & Communication Europe-LATAM",
+          "desc": "Développement du département créatif et localisation des stratégies de communication, soutenu par une profonde compréhension multiculturelle."
+        },
+        {
+          "name": "Gustavo Cuéllar",
+          "role": "Internationalisation & Culture d'Entreprise",
+          "desc": "Spécialiste en internationalisation d'entreprises, axé sur la conception de modèles d'affaires et de flux de travail pour startups et entreprises mondiales s'adaptant à de nouveaux marchés."
+        },
+        {
+          "name": "Carlos Martínez",
+          "role": "Relations Diplomatiques & Affaires Juridiques Internationales",
+          "desc": "Avocat international spécialisé dans les relations extérieures, les nouvelles mises en œuvre de marchés et le conseil juridique mondial."
+        }
+      ],
+      "director": {
+        "name": "José Miguel Ventura Michel — Directeur Général, WeProm Europe",
+        "description": "Publicitaire, communicant et spécialiste marketing trilingue. Plus de dix ans d'expérience en marketing stratégique, études de marché et développement commercial international."
+      }
+    },
+
   "howWeWork": {
     "title": "Méthode — Notre Architecture d'Exécution",
     "subtitle": "Une approche structurée pour accompagner les opportunités entre l'Europe et l'Amérique latine, avec un accompagnement expert à chaque étape. L'expansion internationale ne relève pas d'une décision ponctuelle, mais d'un processus méthodique.",

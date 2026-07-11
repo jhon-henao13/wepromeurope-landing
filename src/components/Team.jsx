@@ -1,8 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
-// ─────────────────────────────────────────────────────────────
-// Migrated Team Image Imports (Europe Route)
-// ─────────────────────────────────────────────────────────────
+// Imports de imágenes (no cambian)
 import joseMiguelImg from '../assets/team/mike3.png';
 import juanCarlosPImg from '../assets/team/juancarlosvsr3.png';
 import juanCarlosMImg from '../assets/team/JUANCARLOS3.png';
@@ -15,103 +14,27 @@ import joeKaram from '../assets/team/joeKaram.png';
 import carlosMartinez from '../assets/team/carlosMartinez.png';
 import LisaLenselle from '../assets/team/LisaLenselle.png';
 
-// ─────────────────────────────────────────────────────────────
-// WeProm Europe Official Data Structure
-// ─────────────────────────────────────────────────────────────
-const TEAM_DATA = [
-  {
-    id: 1,
-    name: "José Miguel Ventura Michel",
-    role: "Managing Director, WeProm Europe",
-    desc: "Trilingual Publicist, Communicator, and Marketing Specialist. More than ten years of experience in strategic marketing, market research, and international business development.",
-    initials: "JM",
-    image: joseMiguelImg
-  },
-  {
-    id: 2,
-    name: "Juan Carlos Ventura Pimentel",
-    role: "Strategic Advisor / General Advisor, Grupo WeProm",
-    desc: "Over 35 years in international marketing and commercial development. Extensive public and private experience working with governments, embassies, and multilateral organizations across the Americas, Europe, Africa, and Asia.",
-    initials: "JC",
-    image: juanCarlosPImg
-  },
-  {
-    id: 3,
-    name: "Juan Carlos Ventura Michel",
-    role: "Strategic Advisor / Managing Director, WeProm LATAM",
-    desc: "Entrepreneur and consultant with more than 15 years of international experience in marketing, market research, brand positioning, and commercial expansion.",
-    initials: "JV",
-    image: juanCarlosMImg
-  },
-  {
-    id: 4,
-    name: "Oscar Santamaría Casas",
-    role: "Associate International Consultant, WeProm Europe",
-    desc: "More than 35 years of experience in international cooperation, foreign investment attraction, and business development between Mexico and the European Union across both public and private sectors.",
-    initials: "OS",
-    image: oscarSantamaria
-  },
-  {
-    id: 5,
-    name: "Lisa Lenselle",
-    role: "Commercial Direction & Key Account Relations",
-    desc: "International marketing and commercial opportunities development, with solid experience in public and private sectors throughout Europe and LATAM.",
-    initials: "LL",
-    image: LisaLenselle
-  },
-  {
-    id: 6,
-    name: "Emilia López Matute",
-    role: "Director of Institutional, Political & Corporate Communication",
-    desc: "Specialization in political, corporate, and digital communication, focused on developing multi-channel strategies for brand and institutional promotion and positioning.",
-    initials: "EL",
-    image: emiliaImg
-  },
-  {
-    id: 7,
-    name: "Joe Karam",
-    role: "Process Management & Financial Risks",
-    desc: "Engineer specializing in international financial environments, advising global clients on functional analysis and financial risk management.",
-    initials: "JK",
-    image: joeKaram
-  },
-  {
-    id: 8,
-    name: "Josh Biner",
-    role: "Operations & International Expansion",
-    desc: "International advisor for strategic planning, innovation, sustainability, and expansion projects, specializing in mergers, acquisitions, and commercial transformation within multinational corporations.",
-    initials: "JB",
-    image: joshBinner
-  },
-  {
-    id: 9,
-    name: "Pablo De la Garza",
-    role: "Creativity & Communication Europe-LATAM",
-    desc: "Creative department development and localization of communication strategies, backed by a profound multicultural understanding.",
-    initials: "PG",
-    image: pabloGarza
-  },
-  {
-    id: 10,
-    name: "Gustavo Cuéllar",
-    role: "Internationalization & Business Culture",
-    desc: "Business internationalization specialist, focused on designing business models and workflows for startups and global enterprises adapting to new markets.",
-    initials: "GC",
-    image: gustavoCuellar
-  },
-  {
-    id: 11,
-    name: "Carlos Martínez",
-    role: "Diplomatic Relations & International Legal Affairs",
-    desc: "International lawyer specializing in foreign relations, new market implementations, and global legal counsel.",
-    initials: "CM",
-    image: carlosMartinez
-  }
+// Lista de imágenes en el mismo orden que los miembros en los JSON
+const imageList = [
+  joseMiguelImg,
+  juanCarlosPImg,
+  juanCarlosMImg,
+  oscarSantamaria,
+  LisaLenselle,
+  emiliaImg,
+  joeKaram,
+  joshBinner,
+  pabloGarza,
+  gustavoCuellar,
+  carlosMartinez
 ];
 
-// ─────────────────────────────────────────────────────────────
-// Premium Animation Styles (Centered around the new 292px scale)
-// ─────────────────────────────────────────────────────────────
+// Función para generar iniciales desde el nombre
+const getInitials = (name) => {
+  return name.split(' ').map(word => word[0]).join('').toUpperCase().slice(0, 3);
+};
+
+// ==================== AnimatedRings y estilos (sin cambios) ====================
 const STYLES = `
   @keyframes arc-spin-cw {
     from { transform: rotate(0deg); }
@@ -148,24 +71,18 @@ function injectEuropeStyles() {
   stylesInjected = true;
 }
 
-// ─────────────────────────────────────────────────────────────
-// Subcomponent: Animated Rings Recalculated for viewBox 292
-// ─────────────────────────────────────────────────────────────
 function AnimatedRings({ active }) {
   useEffect(() => { injectEuropeStyles(); }, []);
 
-  // Exact recalculation for 240x240 container (Inner image frame = 212x212, margin = 14)
   const r = 112;
   const cx = 120;
   const cy = 120;
-  const circ = 2 * Math.PI * r; // ≈ 703.7
-
+  const circ = 2 * Math.PI * r;
   const arcLen = circ * 0.30;
   const gap = circ - arcLen;
 
   return (
     <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 240 240" fill="none">
-      {/* Arc 1 — Clockwise */}
       <circle
         cx={cx} cy={cy} r={r}
         stroke="#2d61e0"
@@ -178,8 +95,6 @@ function AnimatedRings({ active }) {
           transition: 'opacity 0.2s ease',
         }}
       />
-
-      {/* Arc 2 — Counter-clockwise (180 deg offset) */}
       <circle
         cx={cx} cy={cy} r={r}
         stroke="#2d61e0"
@@ -192,8 +107,6 @@ function AnimatedRings({ active }) {
           transition: 'opacity 0.2s ease',
         }}
       />
-
-      {/* Full circle interactive focus ring */}
       {active && (
         <circle
           key="ring-active-europe"
@@ -213,10 +126,7 @@ function AnimatedRings({ active }) {
   );
 }
 
-// ─────────────────────────────────────────────────────────────
-// Subcomponent: Round & Interactive Team Card (292px)
-// ─────────────────────────────────────────────────────────────
-function TeamCard({ name, role, image, initials, isActive, onClick }) {
+function TeamCard({ name, role, image, isActive, onClick }) {
   return (
     <div
       className="flex-shrink-0 flex flex-col items-center cursor-pointer select-none group"
@@ -261,12 +171,11 @@ function TeamCard({ name, role, image, initials, isActive, onClick }) {
               }}
             >
               <span className="font-montserrat text-xl font-medium tracking-wider uppercase opacity-80 group-hover:text-[#2d61e0] transition-colors duration-300">
-                {initials}
+                {getInitials(name)}
               </span>
             </div>
           )}
 
-          {/* Dark overlay */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
@@ -275,8 +184,6 @@ function TeamCard({ name, role, image, initials, isActive, onClick }) {
               transition: 'opacity 0.4s ease',
             }}
           />
-
-          {/* Active state text overlay */}
           <div
             className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none"
             style={{
@@ -301,7 +208,6 @@ function TeamCard({ name, role, image, initials, isActive, onClick }) {
             <p className="text-slate-300 font-montserrat text-[9px] sm:text-[10px] text-center uppercase tracking-wide leading-normal px-1 break-words whitespace-normal">
               {role.replace('WeProm Europe', '').replace(/,\s*/g, ' — ')}
             </p>
-            
           </div>
         </div>
       </div>
@@ -309,11 +215,10 @@ function TeamCard({ name, role, image, initials, isActive, onClick }) {
   );
 }
 
-// ─────────────────────────────────────────────────────────────
-// Main Section Component
-// ─────────────────────────────────────────────────────────────
-const Team = () => {
-  const [activeId, setActiveId] = useState(1);
+// ==================== Componente principal ====================
+export default function Team() {
+  const { t } = useLanguage();
+  const [activeIndex, setActiveIndex] = useState(0);
   const trackRef = useRef(null);
   const rafRef = useRef(null);
   const isDragging = useRef(false);
@@ -321,9 +226,11 @@ const Team = () => {
   const scrollStart = useRef(0);
   const [isUserInteracting, setIsUserInteracting] = useState(false);
 
-  // Duplicate data array to achieve a smooth infinite scroll illusion
-  const duplicatedTeam = [...TEAM_DATA, ...TEAM_DATA];
-  const activeMember = TEAM_DATA.find(m => m.id === activeId) || TEAM_DATA[0];
+  const members = t('team.members');
+  const activeMember = members[activeIndex] || members[0];
+
+  // Duplicar datos para el carrusel infinito
+  const duplicatedMembers = [...members, ...members];
 
   useEffect(() => {
     let lastTime = 0;
@@ -337,7 +244,6 @@ const Team = () => {
       const el = trackRef.current;
       if (el && !isDragging.current && !isUserInteracting) {
         const halfScrollWidth = el.scrollWidth / 2;
-        
         if (el.scrollLeft >= halfScrollWidth) {
           el.scrollLeft = el.scrollLeft - halfScrollWidth;
         } else {
@@ -390,20 +296,16 @@ const Team = () => {
   return (
     <section className="w-full py-20 md:py-28 overflow-hidden bg-slate-100 border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-6 md:px-16">
-
-        {/* HEADER */}
+        {/* HEADER traducido */}
         <div className="max-w-3xl mb-16 reveal">
           <p className="text-[#2d61e0] font-montserrat font-bold tracking-[0.4em] uppercase text-[11px] mb-4">
-            Our Team
+            {t('team.title')}
           </p>
           <h2 className="text-slate-900 font-montserrat text-3xl md:text-[35px] font-semibold uppercase leading-tight tracking-wide mb-6">
-            We are a multicultural, multidisciplinary, and multigenerational team.
+            {t('team.subtitle')}
           </h2>
           <p className="text-black font-montserrat text-sm md:text-base font-normal leading-relaxed tracking-wide">
-            We combine decades of international experience with the vision and agility of the newer generations. 
-            Our team brings together profiles from diverse backgrounds — marketing, foreign trade, finance, economics, 
-            communication, international relations, and more — because internationalizing a business requires exactly that: 
-            a comprehensive vision, rather than isolated specialization.
+            {t('team.description')}
           </p>
         </div>
 
@@ -425,20 +327,20 @@ const Team = () => {
             onTouchMove={onTouchMove}
             onTouchEnd={onMouseUp}
           >
-            {duplicatedTeam.map((member, index) => (
-              <TeamCard
-                key={`${member.id}-${index}`}
-                name={member.name}
-                role={member.role}
-                image={member.image}
-                initials={member.initials}
-                isActive={activeId === member.id}
-                onClick={() => setActiveId(member.id)}
-              />
-            ))}
+            {duplicatedMembers.map((member, index) => {
+              const realIndex = index % members.length;
+              return (
+                <TeamCard
+                  key={`${member.name}-${index}`}
+                  name={member.name}
+                  role={member.role}
+                  image={imageList[realIndex]}
+                  isActive={activeIndex === realIndex}
+                  onClick={() => setActiveIndex(realIndex)}
+                />
+              );
+            })}
           </div>
-          
-          {/* Adjusted Optical Side Gradients */}
           <div className="absolute top-0 left-0 h-full w-16 bg-gradient-to-r from-white to-transparent pointer-events-none hidden md:block" />
           <div className="absolute top-0 right-0 h-full w-16 bg-gradient-to-l from-white to-transparent pointer-events-none hidden md:block" />
         </div>
@@ -446,29 +348,24 @@ const Team = () => {
         {/* EXECUTIVE DETAIL DRAWER */}
         <div className="bg-slate-50 border border-slate-200/60 p-8 md:p-10 rounded-sm transition-all duration-300 min-h-[180px] flex flex-col md:flex-row gap-6 md:gap-10 items-start">
           <div className="flex-shrink-0 bg-[#2d61e0]/10 text-[#2d61e0] w-12 h-12 flex items-center justify-center border border-[#2d61e0]/20 rounded-xs font-montserrat font-bold text-sm">
-            {activeMember.initials}
+            {getInitials(activeMember.name)}
           </div>
           <div className="flex-1">
-
             <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 mb-4 w-full">
               <h4 className="text-slate-900 font-montserrat text-base font-bold uppercase tracking-wide inline-block whitespace-normal">
                 {activeMember.name}
               </h4>
               <span className="hidden md:inline text-slate-300">|</span>
               <span className="text-[#2d61e0] font-montserrat text-xs font-semibold uppercase tracking-wide inline-block whitespace-normal leading-relaxed">
-                {String(activeMember.role)}
+                {activeMember.role}
               </span>
             </div>
-
             <p className="text-slate-700 font-montserrat text-sm md:text-[15px] font-light leading-relaxed tracking-wide max-w-5xl transition-all duration-300 animate-fadeIn">
               {activeMember.desc}
             </p>
           </div>
         </div>
-
       </div>
     </section>
   );
-};
-
-export default Team;
+}

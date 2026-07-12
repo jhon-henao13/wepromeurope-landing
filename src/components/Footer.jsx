@@ -118,7 +118,9 @@ export default function Footer() {
           
           {/* Derechos de Autor */}
           <div className="text-center lg:text-left">
-            <span>{t('footer.copyright')}</span>
+            <span>{t('footer.copyright')}</span> <a href="https://grupoweprom.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors duration-200 font-extrabold">
+              {t('footer.weprom')}
+            </a>
           </div>
 
           {/* Enlaces Legales */}

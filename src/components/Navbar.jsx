@@ -21,6 +21,16 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Bloquear el scroll de la página de fondo cuando el menú lateral móvil esté activo
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => { document.body.style.overflow = 'unset'; };
+  }, [isOpen]);
+
   // Definir items de navegación con IDs fijos (en inglés) y etiquetas traducidas
   const navItems = [
     { id: 'global-capabilities', labelKey: 'nav.global' },
@@ -32,8 +42,14 @@ export default function Navbar() {
   return (
     <header className="w-full flex flex-col fixed top-0 left-0 z-50 transition-all duration-300">
       {/* TOP NOTIFICATION BAR */}
-      <div className={`w-full bg-slate-950/90 border-b border-white/5 text-white text-[11px] md:text-xs px-4 text-center tracking-wide z-50 transition-all duration-500 ease-in-out overflow-hidden ${isScrolled ? 'max-h-0 py-0 opacity-0 pointer-events-none' : 'max-h-12 py-2 opacity-100'}`}>
-        <span className="opacity-75">{t('topbar')}</span>
+      {/* TOP NOTIFICATION BAR (Optimizado Premium) */}
+      <div className={`w-full bg-slate-950/95 border-b border-white/5 text-white text-[11px] md:text-xs px-4 text-center tracking-wide z-50 transition-all duration-500 ease-in-out overflow-hidden relative ${isScrolled ? 'max-h-0 py-0 opacity-0 pointer-events-none' : 'max-h-12 py-2.5 opacity-100'}`}>
+        <span className="opacity-80 font-medium tracking-wider inline-flex items-center gap-2">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
+          {t('topbar')}
+        </span>
+        {/* Haz de luz horizontal estático/difuso decorativo inferior */}
+        <div className="absolute bottom-0 left-0 h-[1px] w-full bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent" />
       </div>
 
       {/* MAIN NAVIGATION */}
@@ -101,48 +117,86 @@ export default function Navbar() {
               </svg>
             </button>
           </div>
+
         </nav>
       </div>
 
       {/* Mobile Menu */}
-      <div className={`lg:hidden w-full bg-slate-950/95 border-b border-white/10 transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'}`}>
-        <div className="px-4 pt-2 pb-6 space-y-3">
-          {navItems.map((item) => (
-            <a 
-              key={item.id}
-              href={`#${item.id}`}
-              onClick={() => setIsOpen(false)}
-              className="block text-white/80 hover:text-white text-sm py-2 font-medium border-b border-white/5"
-            >
-              {t(item.labelKey)}
-            </a>
-          ))}
-          <div className="pt-4 flex flex-col space-y-4">
+      {/* MENÚ MÓVIL PREMIUM: Backdrop Translúcido con Cierre de Clic Externo */}
+      <div 
+        className={`fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-40 transition-opacity duration-500 lg:hidden ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        onClick={() => setIsOpen(false)}
+      />
+
+      {/* MENÚ MÓVIL PREMIUM: Panel Deslizable Lateral Derecho (Slide-Over Panel) */}
+      <div className={`fixed top-0 right-0 h-full w-[310px] sm:w-[360px] bg-slate-950/95 backdrop-blur-2xl border-l border-white/10 z-50 shadow-[-20px_0_50px_rgba(0,0,0,0.7)] p-6 flex flex-col justify-between transform transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] lg:hidden ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        
+        <div>
+          {/* Cabecera Interna del Menú Lateral */}
+          <div className="flex items-center justify-between pb-5 border-b border-white/5 mb-8">
+            <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-slate-400">Navigation</span>
             <button 
-              onClick={openModal}
-              className="w-full bg-indigo-600 text-white text-xs font-semibold py-3 rounded text-center"
+              onClick={() => setIsOpen(false)}
+              className="text-white/60 hover:text-white p-2 rounded-full hover:bg-white/5 transition-colors"
+              aria-label="Close Menu"
             >
-              {t('common.requestDiagnostic')}
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
             </button>
-            {/* Mobile language switcher */}
-            <div className="text-xs font-bold text-white/60 space-x-2 text-center">
-              <span
-                className={`cursor-pointer transition-colors ${locale === 'fr' ? 'text-white' : 'hover:text-white'}`}
+          </div>
+
+          {/* Cuerpo: Enlaces con Entrada Escalonada Progresiva en Hover */}
+          <nav className="flex flex-col space-y-6">
+            {navItems.map((item, index) => (
+              <a 
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={() => setIsOpen(false)}
+                style={{ transitionDelay: `${index * 60}ms` }}
+                className={`block text-white/70 hover:text-white text-[15px] font-semibold uppercase tracking-widest text-left transition-all duration-300 transform group/moblink ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-6 opacity-0'}`}
+              >
+                <span className="text-indigo-400 mr-2.5 font-mono text-xs font-light">0{index + 1}.</span>
+                <span className="relative inline-block">
+                  {t(item.labelKey)}
+                  <span className="absolute bottom-[-2px] left-0 w-0 h-[1px] bg-indigo-500 transition-all duration-300 group-hover/moblink:w-full" />
+                </span>
+              </a>
+            ))}
+          </nav>
+        </div>
+
+        {/* Zona Inferior: CTA y Selector de Idiomas Rediseñado */}
+        <div className={`space-y-6 pt-6 border-t border-white/5 transition-all duration-500 delay-300 transform ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'}`}>
+          <button 
+            onClick={() => { setIsOpen(false); openModal(); }}
+            className="w-full bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold py-4 rounded-xl shadow-lg shadow-indigo-600/20 text-center uppercase tracking-widest transition-all duration-300 active:scale-[0.98]"
+          >
+            {t('common.requestDiagnostic')}
+          </button>
+
+          {/* Switcher de Idioma Móvil de Aspecto Corporativo */}
+          <div className="flex items-center justify-between bg-white/[0.03] p-2 rounded-xl border border-white/5">
+            <span className="text-[11px] font-medium text-slate-400 pl-2">Select Language</span>
+            <div className="flex space-x-1">
+              <button
+                className={`text-[11px] font-black tracking-wider px-3 py-1.5 rounded-lg transition-all ${locale === 'fr' ? 'bg-indigo-600 text-white' : 'text-white/40 hover:text-white'}`}
                 onClick={() => setLocale('fr')}
               >
                 FR
-              </span>
-              <span className="text-white/20">|</span>
-              <span
-                className={`cursor-pointer transition-colors ${locale === 'en' ? 'text-white' : 'hover:text-white'}`}
+              </button>
+              <button
+                className={`text-[11px] font-black tracking-wider px-3 py-1.5 rounded-lg transition-all ${locale === 'en' ? 'bg-indigo-600 text-white' : 'text-white/40 hover:text-white'}`}
                 onClick={() => setLocale('en')}
               >
                 EN
-              </span>
+              </button>
             </div>
           </div>
         </div>
+
       </div>
+
     </header>
   );
 }

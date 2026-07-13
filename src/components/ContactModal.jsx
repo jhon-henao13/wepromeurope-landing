@@ -13,23 +13,49 @@ export function ModalProvider({ children }) {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
 
   // Escuchar el evento postMessage de Calendly para saber cuando agendan con éxito
+  // Escuchar tanto el mensaje interno como la redirección del iframe
   useEffect(() => {
     const handleCalendlyEvent = (e) => {
+      // 1. Intento por PostMessage nativo
       if (e.data.event && e.data.event === 'calendly.event_scheduled') {
-        setStep(3); // Pasar automáticamente a la página de gracias premium
-        
-        // Disparar evento a Google Tag Manager para trackeo de conversiones exactas
-        if (window.dataLayer) {
-          window.dataLayer.push({
-            event: 'calendly_booking_success',
-            leadEmail: formData.email
-          });
-        }
+        triggerSuccess();
       }
     };
 
+    const triggerSuccess = () => {
+      setStep(3); // Pasar automáticamente a la página de gracias premium
+      
+      // Disparar evento a Google Tag Manager
+      if (window.dataLayer) {
+        window.dataLayer.push({
+          event: 'calendly_booking_success',
+          leadEmail: formData.email
+        });
+      }
+    };
+
+    // 2. Respaldo absoluto: Monitorear si el iframe se redirigió a la URL de éxito
+    const interval = setInterval(() => {
+      const iframe = document.querySelector('iframe[title="Calendly Scheduler"]');
+      if (iframe) {
+        try {
+          // Si el iframe redirigió a nuestra web con el parámetro de éxito
+          if (iframe.contentWindow.location.search.includes('status=thank-you')) {
+            triggerSuccess();
+            clearInterval(interval);
+          }
+        } catch (error) {
+          // El error de "Cross-Origin" es normal mientras esté en Calendly.
+          // En cuanto redirija a nuestro propio dominio, el error desaparece y leerá el IF.
+        }
+      }
+    }, 1000);
+
     window.addEventListener('message', handleCalendlyEvent);
-    return () => window.removeEventListener('message', handleCalendlyEvent);
+    return () => {
+      window.removeEventListener('message', handleCalendlyEvent);
+      clearInterval(interval);
+    };
   }, [formData]);
   
 

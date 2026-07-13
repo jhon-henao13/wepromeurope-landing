@@ -11,6 +11,26 @@ export function ModalProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false);
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
+
+  // Escuchar el evento postMessage de Calendly para saber cuando agendan con éxito
+  useEffect(() => {
+    const handleCalendlyEvent = (e) => {
+      if (e.data.event && e.data.event === 'calendly.event_scheduled') {
+        setStep(3); // Pasar automáticamente a la página de gracias premium
+        
+        // Disparar evento a Google Tag Manager para trackeo de conversiones exactas
+        if (window.dataLayer) {
+          window.dataLayer.push({
+            event: 'calendly_booking_success',
+            leadEmail: formData.email
+          });
+        }
+      }
+    };
+
+    window.addEventListener('message', handleCalendlyEvent);
+    return () => window.removeEventListener('message', handleCalendlyEvent);
+  }, [formData]);
   
 
   const openModal = () => {
@@ -181,11 +201,48 @@ function ContactModal({ isOpen, step, setStep, formData, setFormData, onClose })
             <div className="w-full flex-1 relative bg-white">
               <iframe
                 title="Calendly Scheduler"
-                src={`https://calendly.com/YOUR_CALENDLY_URL?name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}&embed_domain=weprom.europe`}
+                src={`https://calendly.com/lisa-lenselle-wepromeurope/30min?name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}&primary_color=4361dd`}
                 className="w-full h-full border-0"
                 allowFullScreen
               />
             </div>
+          </div>
+        )}
+
+        {/* PASO 3: PÁGINA DE GRACIAS INTERNA PREMIUM */}
+        {step === 3 && (
+          <div className="p-10 sm:p-14 text-center animate-slideUp bg-gradient-to-b from-slate-50 to-white text-slate-900">
+            {/* Animación Checkmark Premium */}
+            <div className="w-20 h-20 mx-auto mb-6 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center border border-emerald-100 shadow-[0_10px_25px_rgba(16,185,129,0.15)]">
+              <svg className="w-10 h-10 animate-[pulse_2s_infinite]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+
+            <span className="text-[10px] tracking-[0.3em] font-bold text-indigo-600 uppercase block mb-2">
+              ¡Confirmación Recibida!
+            </span>
+            <h3 className="text-3xl font-extrabold text-slate-900 tracking-tight mb-4">
+              Tu Sesión de Descubrimiento está Agendada
+            </h3>
+            
+            <div className="bg-slate-100/80 border border-slate-200/60 rounded-xl p-4 max-w-md mx-auto mb-8 text-left space-y-1">
+              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Detalles del Lead</p>
+              <p className="text-sm font-bold text-slate-800"><span className="font-medium text-slate-500">Consultor:</span> Lisa Lenselle</p>
+              <p className="text-sm font-bold text-slate-800"><span className="font-medium text-slate-500">Invitado:</span> {formData.name}</p>
+              <p className="text-sm font-bold text-slate-800"><span className="font-medium text-slate-500">Email:</span> {formData.email}</p>
+            </div>
+
+            <p className="text-sm text-slate-500 max-w-[460px] mx-auto leading-relaxed mb-8">
+              Hemos enviado una invitación de calendario con el enlace de acceso a tu correo electrónico. Por favor, asegúrate de revisar tu bandeja de entrada o spam.
+            </p>
+
+            <button 
+              onClick={onClose}
+              className="inline-flex items-center space-x-2 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs py-4 px-8 rounded-xl tracking-widest uppercase transition-all duration-300 shadow-lg active:scale-[0.99]"
+            >
+              Volver a la Landing
+            </button>
           </div>
         )}
 

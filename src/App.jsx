@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { ModalProvider } from './components/ContactModal';
 import { LanguageProvider } from './context/LanguageContext';
 import Navbar from './components/Navbar';
@@ -14,8 +14,22 @@ import HowWeWork from './components/HowWeWork';
 import RiskMitigationFAQs from './components/RiskMitigationFAQs';
 import Footer from './components/Footer';
 import ScrollReveal from './components/ScrollReveal';
+import ThankYouPage from './components/ThankYouPage'
 
 export default function App() {
+  // Detectar la ruta actual de manera nativa
+  const [currentPath] = useState(window.location.pathname);
+
+  // Si la ruta es exactamente /thank-you, renderiza la página de gracias aislada
+  if (currentPath === '/thank-you') {
+    return (
+      <LanguageProvider>
+        <ThankYouPage />
+      </LanguageProvider>
+    );
+  }
+
+  // De lo contrario, carga la estructura completa de la landing page
   return (
     <LanguageProvider>  {/* ← LanguageProvider PRIMERO */}
       <ModalProvider>   {/* ← ModalProvider DENTRO */}

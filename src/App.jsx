@@ -21,7 +21,7 @@ export default function App() {
   const [currentPath] = useState(window.location.pathname);
 
   // Si la ruta es exactamente /thank-you, renderiza la página de gracias aislada
-  if (currentPath === '/thank-you') {
+  if (currentPath.endsWith('/thank-you')) {
     return (
       <LanguageProvider>
         <ThankYouPage />

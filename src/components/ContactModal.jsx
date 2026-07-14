@@ -24,6 +24,7 @@ export function ModalProvider({ children }) {
 
     const triggerSuccess = () => {
       setStep(3); // Pasar automáticamente a la página de gracias premium
+      window.location.href = '/market-research/thank-you';
       
       // Disparar evento a Google Tag Manager
       if (window.dataLayer) {

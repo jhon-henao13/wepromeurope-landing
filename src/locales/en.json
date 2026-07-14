@@ -357,6 +357,15 @@
     },
 
 
+  "thankYou": {
+    "title": "Your Discovery Session is Scheduled",
+    "subtitle": "Confirmation Received!",
+    "description": "We've sent a calendar invitation with the access link to your email. Please check your inbox or spam folder.",
+    "consultant": "Consultant: Lisa Lenselle",
+    "guest": "Guest:",
+    "email": "Email:",
+    "backButton": "Back to Home"
+  },
 
   "footer": {
     "explore": "Explore",

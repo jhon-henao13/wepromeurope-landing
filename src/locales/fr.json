@@ -358,6 +358,15 @@
       "phonePlaceholder": "55 2234 89"
     },
 
+  "thankYou": {
+    "title": "Votre Session Découverte est Planifiée",
+    "subtitle": "Confirmation Reçue !",
+    "description": "Nous avons envoyé une invitation de calendrier avec le lien d'accès à votre email. Veuillez vérifier votre boîte de réception ou vos spams.",
+    "consultant": "Consultant : Lisa Lenselle",
+    "guest": "Invité :",
+    "email": "Email :",
+    "backButton": "Retour à l'Accueil"
+  },
 
   "footer": {
     "explore": "Explorer",

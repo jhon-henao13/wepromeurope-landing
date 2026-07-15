@@ -352,9 +352,9 @@
       "back": "← Back",
       "workWithUs": "Work with Us",
       "scheduleMeeting": "Schedule a Meeting",
-      "namePlaceholder": "Ismael Lopez",
-      "emailPlaceholder": "contacto@promexico.mx",
-      "phonePlaceholder": "55 2234 89"
+      "namePlaceholder": "Enter your full name.",
+      "emailPlaceholder": "Ej. name@yourcomapany.com",
+      "phonePlaceholder": "Enter your phone number"
     },
 
 

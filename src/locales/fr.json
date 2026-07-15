@@ -1,5 +1,6 @@
 {
-  "topbar": "Vous recherchez des insights sur le marché local ? Prenez des décisions éclairées grâce a nos études de marché locales et à notre accompagnement pour votre expansion internationale.",
+  "topbar": "Vous recherchez des insights sur le marché local ?",
+  "topbarSubtitle": "Prenez des décisions éclairées grâce à nos études de marché locales et à notre accompagnement pour votre expansion internationale.",
   "nav": {
     "global": "Capacités Internationales",
     "local": "Capacités Locales",

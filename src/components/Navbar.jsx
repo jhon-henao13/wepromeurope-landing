@@ -44,10 +44,13 @@ export default function Navbar() {
       {/* TOP NOTIFICATION BAR */}
       {/* TOP NOTIFICATION BAR (Optimizado Premium) */}
       <div className={`w-full bg-slate-950/95 border-b border-white/5 text-white text-[11px] md:text-xs px-4 text-center tracking-wide z-50 transition-all duration-500 ease-in-out overflow-hidden relative ${isScrolled ? 'max-h-0 py-0 opacity-0 pointer-events-none' : 'max-h-12 py-2.5 opacity-100'}`}>
-        <span className="opacity-80 font-bold tracking-wider inline-flex items-center gap-2">
+
+        <span className="opacity-90 font-bold tracking-wider inline-flex items-center gap-2">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
           {t('topbar')}
+          <span className="opacity-70">{t('topbarSubtitle')}</span>
         </span>
+
         {/* Haz de luz horizontal estático/difuso decorativo inferior */}
         <div className="absolute bottom-0 left-0 h-[1px] w-full bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent" />
       </div>

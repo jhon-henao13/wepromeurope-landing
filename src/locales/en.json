@@ -1,5 +1,6 @@
 {
-  "topbar": "Looking for local market insights? We deliver both local market research and cross-border expansion solutions.",
+  "topbar": "Looking for local market insights?",
+  "topbarSubtitle": "We deliver both local market research and cross-border expansion solutions.",
   "nav": {
     "global": "Global Capabilities",
     "local": "Local Capabilities",

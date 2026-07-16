@@ -359,9 +359,9 @@
 
 
   "thankYou": {
-    "title": "Your Discovery Session is Scheduled",
-    "subtitle": "Confirmation Received!",
-    "description": "We've sent a calendar invitation with the access link to your email. Please check your inbox or spam folder.",
+    "title": "You're all set!",
+    "subtitle": "Your discovery call is confirmed.",
+    "description": "Check your inbox for a calendar invitation with the meeting link. If you don't see it in a few minutes, please check your spam folder.",
     "consultant": "Consultant: Lisa Lenselle",
     "guest": "Guest:",
     "email": "Email:",

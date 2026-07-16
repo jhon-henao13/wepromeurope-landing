@@ -360,9 +360,9 @@
     },
 
   "thankYou": {
-    "title": "Votre Session Découverte est Planifiée",
-    "subtitle": "Confirmation Reçue !",
-    "description": "Nous avons envoyé une invitation de calendrier avec le lien d'accès à votre email. Veuillez vérifier votre boîte de réception ou vos spams.",
+    "title": "Tout est prêt !",
+    "subtitle": "Votre appel découverte est confirmé.",
+    "description": "Consultez votre boîte de réception pour une invitation calendrier avec le lien de la réunion. Si vous ne le voyez pas dans quelques minutes, veuillez vérifier votre dossier spam.",
     "consultant": "Consultant : Lisa Lenselle",
     "guest": "Invité :",
     "email": "Email :",

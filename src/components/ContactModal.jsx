@@ -24,7 +24,7 @@ export function ModalProvider({ children }) {
     const triggerSuccess = () => {
       setIsRedirecting(true);
       // Redirigir a la página de gracias externa
-      window.location.href = '/market-research/thank-you';
+      window.location.href = `/market-research/thank-you?name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}`;
     };
 
     const interval = setInterval(() => {

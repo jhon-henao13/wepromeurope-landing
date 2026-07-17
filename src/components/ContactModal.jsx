@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
 import logo from '../assets/icon2.jpeg';
 import { useLanguage } from '../context/LanguageContext';
 import PhoneInput from 'react-phone-number-input';
@@ -14,6 +14,13 @@ export function ModalProvider({ children }) {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
   const [isRedirecting, setIsRedirecting] = useState(false);
 
+  // Referencia para mantener siempre el estado más reciente accesible en los event listeners
+  const formDataRef = useRef(formData);
+  useEffect(() => {
+    formDataRef.current = formData;
+  }, [formData]);
+
+
   useEffect(() => {
     const handleCalendlyEvent = (e) => {
       if (e.data.event && e.data.event === 'calendly.event_scheduled') {
@@ -23,29 +30,18 @@ export function ModalProvider({ children }) {
 
     const triggerSuccess = () => {
       setIsRedirecting(true);
-      // Redirigir a la página de gracias externa
-      window.location.href = `/market-research/thank-you?name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}`;
+      // Extrae los datos actualizados desde la referencia
+      const currentData = formDataRef.current;
+      window.location.href = `/market-research/thank-you?name=${encodeURIComponent(currentData.name)}&email=${encodeURIComponent(currentData.email)}`;
     };
-
-    const interval = setInterval(() => {
-      const iframe = document.querySelector('iframe[title="Calendly Scheduler"]');
-      if (iframe) {
-        try {
-          if (iframe.contentWindow.location.search.includes('status=thank-you')) {
-            triggerSuccess();
-            clearInterval(interval);
-          }
-        } catch (error) {}
-      }
-    }, 1000);
 
     window.addEventListener('message', handleCalendlyEvent);
     return () => {
       window.removeEventListener('message', handleCalendlyEvent);
-      clearInterval(interval);
     };
-  }, [formData]);
+  }, []); // Se ejecuta una sola vez al montar de forma segura
 
+  
   const openModal = () => {
     setIsOpen(true);
     setStep(1);

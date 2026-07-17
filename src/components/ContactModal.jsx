@@ -208,12 +208,14 @@ function ContactModal({ isOpen, step, setStep, formData, setFormData, onClose, i
             </div>
 
             <div className="w-full flex-1 relative bg-white">
+
               <iframe
                 title="Calendly Scheduler"
-                src={`https://calendly.com/lisa-lenselle-wepromeurope/30min?name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}&primary_color=4361dd`}
+                src={`https://calendly.com/emilia-wepromeurope/30min?name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}&a3=${encodeURIComponent(formData.phone || '')}&primary_color=4361dd`}
                 className="w-full h-full border-0"
                 allowFullScreen
               />
+
             </div>
           </div>
         )}

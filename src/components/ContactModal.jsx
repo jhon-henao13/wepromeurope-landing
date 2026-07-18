@@ -62,7 +62,8 @@ export function ModalProvider({ children }) {
       });
     
       console.log('✅ Datos enviados a n8n, redirigiendo...');
-      window.location.href = `/market-research/thank-you?invitee_full_name=${encodeURIComponent(currentData.name)}&invitee_email=${encodeURIComponent(currentData.email)}`;
+
+      window.location.href = `/market-research/thank-you?invitee_full_name=${encodeURIComponent(currentData.name)}&invitee_email=${encodeURIComponent(currentData.email)}&phone=${encodeURIComponent(currentData.phone || '')}`;
     };
 
     window.addEventListener('message', handleCalendlyEvent);

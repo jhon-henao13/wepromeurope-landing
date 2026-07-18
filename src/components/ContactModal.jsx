@@ -36,21 +36,24 @@ export function ModalProvider({ children }) {
 
   useEffect(() => {
     const handleCalendlyEvent = (e) => {
+      console.log('📩 Evento postMessage recibido:', e.data);
       if (e.data.event && e.data.event === 'calendly.event_scheduled') {
+        console.log('✅ Evento de agendamiento detectado');
         const payload = e.data.payload;
         const appointmentDate = payload?.event?.start_time || new Date().toISOString();
-        // Guardar la fecha en la referencia para usarla en triggerSuccess
         formDataRef.current.appointmentDate = appointmentDate;
         triggerSuccess();
       }
     };
 
-    const triggerSuccess = () => {
+    const triggerSuccess = async () => {
+      console.log('✅ triggerSuccess ejecutado');
       setIsRedirecting(true);
       const currentData = formDataRef.current;
+      console.log('📤 Datos a enviar a n8n:', currentData);
         
-      // Notificar a n8n
-      notifyN8n({
+      // Notificar a n8n (esperar a que termine)
+      await notifyN8n({
         name: currentData.name,
         email: currentData.email,
         phone: currentData.phone || '',
@@ -58,8 +61,8 @@ export function ModalProvider({ children }) {
         appointmentDate: currentData.appointmentDate || new Date().toISOString()
       });
     
-      // Redirigir a thank-you
-      window.location.href = `/market-research/thank-you?name=${encodeURIComponent(currentData.name)}&email=${encodeURIComponent(currentData.email)}`;
+      console.log('✅ Datos enviados a n8n, redirigiendo...');
+      window.location.href = `/market-research/thank-you?invitee_full_name=${encodeURIComponent(currentData.name)}&invitee_email=${encodeURIComponent(currentData.email)}`;
     };
 
     window.addEventListener('message', handleCalendlyEvent);

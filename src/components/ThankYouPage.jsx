@@ -1,22 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from '../assets/icon2.jpeg';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function ThankYouPage() {
   const { t } = useLanguage();
-  const urlParams = new URLSearchParams(window.location.search);
-  const guestName = urlParams.get('name') || '';
-  const guestEmail = urlParams.get('email') || '';
+  const [guestName, setGuestName] = useState('');
+  const [guestEmail, setGuestEmail] = useState('');
+  const [appointmentDate, setAppointmentDate] = useState('');
 
   useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('invitee_full_name') || urlParams.get('name') || '';
+    const email = urlParams.get('invitee_email') || urlParams.get('email') || '';
+    const date = urlParams.get('event_start_time') || '';
+
+    setGuestName(name);
+    setGuestEmail(email);
+    setAppointmentDate(date);
+
     if (window.dataLayer) {
       window.dataLayer.push({
         event: 'calendly_booking_success',
-        leadName: guestName,
-        leadEmail: guestEmail
+        leadName: name,
+        leadEmail: email
       });
     }
-  }, [guestName, guestEmail]);
+  }, []);
 
   return (
     <div className="min-h-screen w-full bg-slate-950 flex items-center justify-center p-4 font-sans selection:bg-indigo-500 selection:text-white">
@@ -46,10 +55,9 @@ export default function ThankYouPage() {
         <div className="bg-slate-100/80 border border-slate-200/60 rounded-xl p-4 max-w-md mx-auto mb-8 text-left space-y-1">
           <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Details</p>
           <p className="text-sm font-bold text-slate-800"><span className="font-medium text-slate-500">{t('thankYou.consultant')}</span></p>
-
           <p className="text-sm font-bold text-slate-800"><span className="font-medium text-slate-500">{t('thankYou.guest')}</span> {guestName}</p>
           <p className="text-sm font-bold text-slate-800"><span className="font-medium text-slate-500">{t('thankYou.email')}</span> {guestEmail}</p>
-
+          <p className="text-sm font-bold text-slate-800"><span className="font-medium text-slate-500">Fecha de cita:</span> {appointmentDate ? new Date(appointmentDate).toLocaleString() : ''}</p>
         </div>
 
         <button 

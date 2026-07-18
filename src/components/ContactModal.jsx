@@ -21,17 +21,44 @@ export function ModalProvider({ children }) {
   }, [formData]);
 
 
+  const notifyN8n = async (leadData) => {
+    try {
+      await fetch('https://n8n.advantechai.org/webhook/b6d416cc-97e5-4234-8778-7bbd1cd9af19', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(leadData)
+      });
+    } catch (error) {
+      console.error('Error notificando n8n:', error);
+    }
+  };
+
+
   useEffect(() => {
     const handleCalendlyEvent = (e) => {
       if (e.data.event && e.data.event === 'calendly.event_scheduled') {
+        const payload = e.data.payload;
+        const appointmentDate = payload?.event?.start_time || new Date().toISOString();
+        // Guardar la fecha en la referencia para usarla en triggerSuccess
+        formDataRef.current.appointmentDate = appointmentDate;
         triggerSuccess();
       }
     };
 
     const triggerSuccess = () => {
       setIsRedirecting(true);
-      // Extrae los datos actualizados desde la referencia
       const currentData = formDataRef.current;
+        
+      // Notificar a n8n
+      notifyN8n({
+        name: currentData.name,
+        email: currentData.email,
+        phone: currentData.phone || '',
+        fechaRecibido: new Date().toISOString(),
+        appointmentDate: currentData.appointmentDate || new Date().toISOString()
+      });
+    
+      // Redirigir a thank-you
       window.location.href = `/market-research/thank-you?name=${encodeURIComponent(currentData.name)}&email=${encodeURIComponent(currentData.email)}`;
     };
 

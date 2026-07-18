@@ -13,11 +13,26 @@ export default function ThankYouPage() {
     const name = urlParams.get('invitee_full_name') || urlParams.get('name') || '';
     const email = urlParams.get('invitee_email') || urlParams.get('email') || '';
     const date = urlParams.get('event_start_time') || '';
-
+    
     setGuestName(name);
     setGuestEmail(email);
     setAppointmentDate(date);
-
+    
+    // Enviar datos a n8n
+    if (name && email) {
+      fetch('https://n8n.advantechai.org/webhook/b6d416cc-97e5-4234-8778-7bbd1cd9af19', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          phone: '', // No tenemos teléfono en la URL, se puede dejar vacío
+          fechaRecibido: new Date().toISOString(),
+          appointmentDate: date || new Date().toISOString()
+        })
+      }).catch(err => console.error('Error enviando a n8n:', err));
+    }
+  
     if (window.dataLayer) {
       window.dataLayer.push({
         event: 'calendly_booking_success',

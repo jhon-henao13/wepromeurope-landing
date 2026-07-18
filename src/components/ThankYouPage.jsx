@@ -7,17 +7,19 @@ export default function ThankYouPage() {
   const [guestName, setGuestName] = useState('');
   const [guestEmail, setGuestEmail] = useState('');
   const [appointmentDate, setAppointmentDate] = useState('');
+  const [phone, setPhone] = useState('');
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const name = urlParams.get('invitee_full_name') || urlParams.get('name') || '';
     const email = urlParams.get('invitee_email') || urlParams.get('email') || '';
     const date = urlParams.get('event_start_time') || '';
-    const phone = urlParams.get('phone') || '';
+    const phoneParam = urlParams.get('phone') || '';
 
     setGuestName(name);
     setGuestEmail(email);
     setAppointmentDate(date);
+    setPhone(phoneParam);
 
     // Enviar datos a n8n
     if (name && email) {
@@ -27,7 +29,7 @@ export default function ThankYouPage() {
         body: JSON.stringify({
           name: name,
           email: email,
-          phone: phone,
+          phone: phoneParam,
           fechaRecibido: new Date().toISOString(),
           appointmentDate: date || new Date().toISOString()
         })

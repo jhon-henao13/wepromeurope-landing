@@ -73,6 +73,7 @@ export default function ThankYouPage() {
           <p className="text-sm font-bold text-slate-800"><span className="font-medium text-slate-500">{t('thankYou.consultant')}</span></p>
           <p className="text-sm font-bold text-slate-800"><span className="font-medium text-slate-500">{t('thankYou.guest')}</span> {guestName}</p>
           <p className="text-sm font-bold text-slate-800"><span className="font-medium text-slate-500">{t('thankYou.email')}</span> {guestEmail}</p>
+          <p className="text-sm font-bold text-slate-800"><span className="font-medium text-slate-500">{t('thankYou.phone')}</span> {phone}</p>
           <p className="text-sm font-bold text-slate-800"><span className="font-medium text-slate-500">Fecha de cita:</span> {appointmentDate ? new Date(appointmentDate).toLocaleString() : ''}</p>
         </div>
 

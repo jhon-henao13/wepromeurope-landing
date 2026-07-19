@@ -14,7 +14,9 @@ export default function ThankYouPage() {
     const name = urlParams.get('invitee_full_name') || urlParams.get('name') || '';
     const email = urlParams.get('invitee_email') || urlParams.get('email') || '';
     const date = urlParams.get('event_start_time') || '';
-    const phoneParam = urlParams.get('phone') || '';
+    // Intentar obtener el teléfono desde localStorage (respaldo)
+    const phoneFromStorage = localStorage.getItem('leadPhone') || '';
+    const phoneParam = urlParams.get('phone') || phoneFromStorage;
 
     setGuestName(name);
     setGuestEmail(email);

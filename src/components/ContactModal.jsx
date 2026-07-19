@@ -126,6 +126,7 @@ function ContactModal({ isOpen, step, setStep, formData, setFormData, onClose, i
     e.preventDefault();
     if (formData.name && formData.email) {
       setStep(2);
+      localStorage.setItem('leadPhone', formData.phone || '');
     }
   };
 
@@ -206,7 +207,12 @@ function ContactModal({ isOpen, step, setStep, formData, setFormData, onClose, i
                     international
                     defaultCountry="MX"
                     value={formData.phone}
-                    onChange={(phone) => setFormData({ ...formData, phone })}
+
+                    onChange={(phone) => {
+                      setFormData({ ...formData, phone });
+                      localStorage.setItem('leadPhone', phone || '');
+                    }}
+
                     placeholder={t('modal.phonePlaceholder')}
                     className="w-full bg-slate-50/50 focus:bg-white border border-slate-200 focus:border-[#3861FB] rounded-xl px-4 py-3.5 text-lg font-medium transition-all duration-300 outline-none shadow-sm focus:shadow-[0_0_0_4px_rgba(56,97,251,0.1)]"
                   />

@@ -42,6 +42,7 @@ export function ModalProvider({ children }) {
         const payload = e.data.payload;
         const appointmentDate = payload?.event?.start_time || new Date().toISOString();
         formDataRef.current.appointmentDate = appointmentDate;
+        formDataRef.current = { ...formData }; // Forzar sincronización
         triggerSuccess();
       }
     };
@@ -63,7 +64,11 @@ export function ModalProvider({ children }) {
     
       console.log('✅ Datos enviados a n8n, redirigiendo...');
 
-      window.location.href = `/market-research/thank-you?invitee_full_name=${encodeURIComponent(currentData.name)}&invitee_email=${encodeURIComponent(currentData.email)}&phone=${encodeURIComponent(currentData.phone || '')}`;
+      // Asegurar que el teléfono se tome directamente del estado formData
+      const phoneToSend = formData.phone || currentData.phone || '';
+      console.log('📞 Teléfono final a enviar:', phoneToSend);
+
+      window.location.href = `/market-research/thank-you?invitee_full_name=${encodeURIComponent(currentData.name)}&invitee_email=${encodeURIComponent(currentData.email)}&phone=${encodeURIComponent(phoneToSend)}`;
     };
 
     window.addEventListener('message', handleCalendlyEvent);
